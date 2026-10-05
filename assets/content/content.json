@@ -1,0 +1,4128 @@
+{
+  "version": 4,
+  "settings": {
+    "spriteFps": 6,
+    "tokenScale": 1,
+    "battleFx": "normal",
+    "summonLimit": {
+      "고급": 2,
+      "레어": 1,
+      "레전더스 레어": 1
+    },
+    "summonCost": {
+      "초급": 1,
+      "중급": 2,
+      "고급": 3,
+      "레어": 4,
+      "레전더스 레어": 5
+    },
+    "magicCost": {
+      "초급": 1,
+      "중급": 2,
+      "고급": 3,
+      "레어": 4,
+      "레전더스 레어": 5
+    },
+    "defaultMove": {
+      "초급": 3,
+      "중급": 3,
+      "고급": 2,
+      "레어": 2,
+      "레전더스 레어": 2
+    }
+  },
+  "dragons": [
+    {
+      "id": "wind",
+      "name": "바람의 드래곤",
+      "grade": "초급",
+      "atk": 30,
+      "def": 30,
+      "hp": 48,
+      "move": null,
+      "image": "assets/cards/wind.png",
+      "introVideo": "assets/content/intros/wind.mp4",
+      "token": "assets/content/sprites/wind.png",
+      "tokenScale": 1.08,
+      "tokenOffsetY": -0.09,
+      "tokenFlip": false,
+      "qrImage": null,
+      "qrCode": null,
+      "sprites": {
+        "attack": {
+          "src": "assets/content/sheets/wind_attack.png",
+          "cols": 4,
+          "rows": 2,
+          "bg": "none",
+          "scale": 1,
+          "offsetY": 0,
+          "flip": false
+        }
+      },
+      "ability": {
+        "target": "self",
+        "mod": {
+          "atk": 0,
+          "def": 40,
+          "hp": 0,
+          "move": 1
+        },
+        "duration": 3,
+        "name": "바람의 장벽",
+        "cooldown": 3
+      }
+    },
+    {
+      "id": "aqua",
+      "name": "아쿠아 드래곤",
+      "grade": "중급",
+      "atk": 55,
+      "def": 65,
+      "hp": 75,
+      "move": null,
+      "image": "assets/cards/aqua.png",
+      "introVideo": "assets/content/intros/aqua.mp4",
+      "token": "assets/content/sprites/aqua.png",
+      "tokenScale": 1.23,
+      "tokenOffsetY": -0.14,
+      "tokenFlip": false,
+      "qrImage": null,
+      "qrCode": null,
+      "sprites": {
+        "attack": {
+          "src": "assets/content/sheets/aqua_attack.png",
+          "cols": 4,
+          "rows": 2,
+          "bg": "none",
+          "scale": 1.01,
+          "offsetY": -0.04,
+          "flip": false
+        },
+        "special": {
+          "src": "assets/content/sheets/aqua_special.png",
+          "cols": 4,
+          "rows": 2,
+          "bg": "none",
+          "scale": 1.01,
+          "offsetY": 0,
+          "flip": false
+        }
+      },
+      "ability": {
+        "target": "enemy1",
+        "mod": {
+          "atk": 0,
+          "def": 0,
+          "hp": -50,
+          "move": 0
+        },
+        "duration": "perm",
+        "name": "물보라",
+        "cooldown": 3
+      }
+    },
+    {
+      "id": "inferno",
+      "name": "인페르노 드래곤",
+      "grade": "중급",
+      "atk": 90,
+      "def": 40,
+      "hp": 70,
+      "move": null,
+      "image": "assets/cards/inferno.png",
+      "introVideo": "assets/content/intros/inferno.mp4",
+      "token": "assets/content/sprites/inferno.png",
+      "tokenScale": 1.26,
+      "tokenOffsetY": -0.13,
+      "tokenFlip": false,
+      "qrImage": null,
+      "qrCode": null,
+      "sprites": {
+        "attack": {
+          "src": "assets/content/sheets/inferno_attack.png",
+          "cols": 4,
+          "rows": 2,
+          "bg": "none",
+          "scale": 1.04,
+          "offsetY": 0,
+          "flip": false
+        }
+      },
+      "ability": {
+        "target": "enemy1",
+        "mod": {
+          "atk": 0,
+          "def": 0,
+          "hp": -50,
+          "move": 0
+        },
+        "duration": "perm",
+        "name": "화염 브레스",
+        "cooldown": 3
+      }
+    },
+    {
+      "id": "diamond",
+      "name": "찬란룡 다이아루스",
+      "grade": "고급",
+      "atk": 75,
+      "def": 125,
+      "hp": 120,
+      "move": null,
+      "image": "assets/cards/diamond.png",
+      "introVideo": "assets/content/intros/diamond.mp4",
+      "token": "assets/content/sprites/diamond.png",
+      "tokenScale": 1.5,
+      "tokenOffsetY": -0.19,
+      "tokenFlip": false,
+      "qrImage": null,
+      "qrCode": null,
+      "sprites": {
+        "attack": {
+          "src": "assets/content/sheets/diamond_attack.png",
+          "cols": 4,
+          "rows": 2,
+          "bg": "none",
+          "scale": 1.35,
+          "offsetY": -0.05,
+          "flip": false
+        },
+        "hit": {
+          "src": "assets/content/sheets/diamond_hit.png",
+          "cols": 4,
+          "rows": 2,
+          "bg": "none",
+          "scale": 1.26,
+          "offsetY": -0.06,
+          "flip": false
+        },
+        "special": {
+          "src": "assets/content/sheets/diamond_special.png",
+          "cols": 3,
+          "rows": 2,
+          "bg": "none",
+          "scale": 1.27,
+          "offsetY": -0.05,
+          "flip": false
+        }
+      },
+      "ability": {
+        "target": "allyAll",
+        "mod": {
+          "atk": 0,
+          "def": 40,
+          "hp": 0,
+          "move": 0
+        },
+        "duration": 2,
+        "name": "빛의 장벽",
+        "cooldown": 4
+      }
+    },
+    {
+      "id": "rainbow",
+      "name": "레인보우 드래곤",
+      "grade": "레어",
+      "atk": 110,
+      "def": 100,
+      "hp": 145,
+      "move": null,
+      "image": "assets/cards/rainbow.png",
+      "introVideo": "assets/content/intros/rainbow.mp4",
+      "token": "assets/content/sprites/rainbow.png",
+      "tokenScale": 1.55,
+      "tokenOffsetY": -0.22,
+      "tokenFlip": false,
+      "qrImage": null,
+      "qrCode": null,
+      "sprites": {
+        "attack": {
+          "src": "assets/content/sheets/rainbow_attack.png",
+          "cols": 4,
+          "rows": 2,
+          "bg": "none",
+          "scale": 1.43,
+          "offsetY": -0.09,
+          "flip": false
+        },
+        "special": {
+          "src": "assets/content/sheets/rainbow_special.png",
+          "cols": 3,
+          "rows": 2,
+          "bg": "none",
+          "scale": 1.26,
+          "offsetY": -0.11,
+          "flip": false
+        }
+      },
+      "ability": {
+        "target": "allyAll",
+        "mod": {
+          "atk": 0,
+          "def": 0,
+          "hp": 40,
+          "move": 0
+        },
+        "duration": "perm",
+        "name": "힐링의 아우라",
+        "cooldown": 3
+      }
+    },
+    {
+      "id": "titan",
+      "name": "타이탄 드래곤",
+      "grade": "레어",
+      "atk": 125,
+      "def": 115,
+      "hp": 155,
+      "move": null,
+      "image": "assets/cards/titan.png",
+      "introVideo": "assets/content/intros/titan.mp4",
+      "token": "assets/content/sprites/titan.png",
+      "tokenScale": 1.39,
+      "tokenOffsetY": -0.17,
+      "tokenFlip": false,
+      "qrImage": null,
+      "qrCode": null,
+      "sprites": {
+        "idle": {
+          "src": "assets/content/sheets/titan_idle.png",
+          "cols": 2,
+          "rows": 2,
+          "bg": "none",
+          "scale": 1.1,
+          "offsetY": -0.04,
+          "flip": false
+        },
+        "attack": {
+          "src": "assets/content/sheets/titan_attack.png",
+          "cols": 4,
+          "rows": 2,
+          "bg": "none",
+          "scale": 1.09,
+          "offsetY": -0.03,
+          "flip": false
+        },
+        "hit": {
+          "src": "assets/content/sheets/titan_hit.png",
+          "cols": 3,
+          "rows": 2,
+          "bg": "none",
+          "scale": 1.14,
+          "offsetY": -0.04,
+          "flip": false
+        }
+      },
+      "ability": {
+        "target": "enemyAll",
+        "mod": {
+          "atk": -30,
+          "def": -40,
+          "hp": 0,
+          "move": 0
+        },
+        "duration": 3,
+        "name": "위용",
+        "cooldown": 5
+      }
+    },
+    {
+      "id": "c_mse6i4jl_8cogdc",
+      "name": "뇌전룡 라이제스",
+      "grade": "고급",
+      "atk": 110,
+      "def": 60,
+      "hp": 115,
+      "move": null,
+      "image": "assets/content/images/c_mse6i4jl_8cogdc.jpg",
+      "introVideo": "assets/content/intros/c_mse6i4jl_8cogdc.mp4",
+      "token": "assets/content/sprites/c_mse6i4jl_8cogdc.png",
+      "tokenScale": 1.18,
+      "tokenOffsetY": -0.13,
+      "tokenFlip": false,
+      "qrImage": null,
+      "qrCode": null,
+      "sprites": {
+        "attack": {
+          "src": "assets/content/sheets/c_mse6i4jl_8cogdc_attack.png",
+          "cols": 3,
+          "rows": 2,
+          "bg": "none",
+          "scale": 1,
+          "offsetY": 0,
+          "flip": false
+        }
+      },
+      "ability": {
+        "target": "enemy1",
+        "mod": {
+          "atk": 0,
+          "def": 0,
+          "hp": -70,
+          "move": 0
+        },
+        "duration": "perm",
+        "name": "전기 브레스",
+        "cooldown": 3
+      }
+    },
+    {
+      "id": "c_mse6jjou_rn13c8",
+      "name": "다크문 나이트 드래곤",
+      "grade": "중급",
+      "atk": 90,
+      "def": 55,
+      "hp": 75,
+      "move": null,
+      "image": "assets/content/images/c_mse6jjou_rn13c8.jpg",
+      "introVideo": null,
+      "token": "assets/content/sprites/c_mse6jjou_rn13c8.png",
+      "tokenScale": 1.35,
+      "tokenOffsetY": -0.15,
+      "tokenFlip": true,
+      "qrImage": null,
+      "qrCode": null,
+      "sprites": {
+        "attack": {
+          "src": "assets/content/sheets/c_mse6jjou_rn13c8_attack.png",
+          "cols": 3,
+          "rows": 2,
+          "bg": "none",
+          "scale": 1.37,
+          "offsetY": -0.02,
+          "flip": true
+        }
+      },
+      "ability": {
+        "target": "enemy1",
+        "mod": {
+          "atk": 0,
+          "def": -60,
+          "hp": 0,
+          "move": 0
+        },
+        "duration": 2,
+        "name": "악몽",
+        "cooldown": 4
+      }
+    },
+    {
+      "id": "c_mse6l88a_7kgidt",
+      "name": "대지룡 그라바론",
+      "grade": "고급",
+      "atk": 85,
+      "def": 110,
+      "hp": 150,
+      "move": null,
+      "image": "assets/content/images/c_mse6l88a_7kgidt.jpg",
+      "introVideo": "assets/content/intros/c_mse6l88a_7kgidt.mp4",
+      "token": "assets/content/sprites/c_mse6l88a_7kgidt.png",
+      "tokenScale": 1.51,
+      "tokenOffsetY": -0.21,
+      "tokenFlip": false,
+      "qrImage": null,
+      "qrCode": null,
+      "sprites": {
+        "attack": {
+          "src": "assets/content/sheets/c_mse6l88a_7kgidt_attack.png",
+          "cols": 4,
+          "rows": 2,
+          "bg": "none",
+          "scale": 1.13,
+          "offsetY": -0.06,
+          "flip": false
+        }
+      },
+      "ability": {
+        "target": "enemyAll",
+        "mod": {
+          "atk": 0,
+          "def": 0,
+          "hp": -40,
+          "move": 0
+        },
+        "duration": "perm",
+        "name": "대지진",
+        "cooldown": 5
+      }
+    },
+    {
+      "id": "c_mse6n51o_tuy8lq",
+      "name": "독 드래곤",
+      "grade": "초급",
+      "atk": 26,
+      "def": 36,
+      "hp": 44,
+      "move": null,
+      "image": "assets/content/images/c_mse6n51o_tuy8lq.jpg",
+      "introVideo": "assets/content/intros/c_mse6n51o_tuy8lq.mp4",
+      "token": "assets/content/sprites/c_mse6n51o_tuy8lq.png",
+      "tokenScale": 1.22,
+      "tokenOffsetY": -0.1,
+      "tokenFlip": true,
+      "qrImage": null,
+      "qrCode": null,
+      "sprites": {
+        "attack": {
+          "src": "assets/content/sheets/c_mse6n51o_tuy8lq_attack.png",
+          "cols": 4,
+          "rows": 2,
+          "bg": "none",
+          "scale": 0.93,
+          "offsetY": 0,
+          "flip": true
+        }
+      },
+      "ability": {
+        "target": "enemy1",
+        "mod": {
+          "atk": 0,
+          "def": 0,
+          "hp": -30,
+          "move": 0
+        },
+        "duration": "perm",
+        "name": "드래곤의 독",
+        "cooldown": 2
+      }
+    },
+    {
+      "id": "c_mse6zfd6_9fcekl",
+      "name": "망령룡 나이트쉐이드",
+      "grade": "중급",
+      "atk": 100,
+      "def": 60,
+      "hp": 110,
+      "move": null,
+      "image": "assets/content/images/c_mse6zfd6_9fcekl.jpg",
+      "introVideo": null,
+      "token": "assets/content/sprites/c_mse6zfd6_9fcekl.png",
+      "tokenScale": 1.49,
+      "tokenOffsetY": -0.19,
+      "tokenFlip": false,
+      "qrImage": null,
+      "qrCode": null,
+      "sprites": {
+        "attack": {
+          "src": "assets/content/sheets/c_mse6zfd6_9fcekl_attack.png",
+          "cols": 4,
+          "rows": 2,
+          "bg": "none",
+          "scale": 1.22,
+          "offsetY": -0.03,
+          "flip": false
+        }
+      },
+      "ability": {
+        "target": "enemy1",
+        "mod": {
+          "atk": -50,
+          "def": 0,
+          "hp": 0,
+          "move": 0
+        },
+        "duration": 3,
+        "name": "망령의 저주",
+        "cooldown": 5
+      }
+    },
+    {
+      "id": "c_mse7157h_7323eh",
+      "name": "맹독룡 베놈카르",
+      "grade": "고급",
+      "atk": 95,
+      "def": 70,
+      "hp": 130,
+      "move": null,
+      "image": "assets/content/images/c_mse7157h_7323eh.jpg",
+      "introVideo": "assets/content/intros/c_mse7157h_7323eh.mp4",
+      "token": "assets/content/sprites/c_mse7157h_7323eh.png",
+      "tokenScale": 1.44,
+      "tokenOffsetY": -0.16,
+      "tokenFlip": false,
+      "qrImage": null,
+      "qrCode": null,
+      "sprites": {
+        "attack": {
+          "src": "assets/content/sheets/c_mse7157h_7323eh_attack.png",
+          "cols": 4,
+          "rows": 2,
+          "bg": "none",
+          "scale": 1.43,
+          "offsetY": -0.03,
+          "flip": false
+        }
+      },
+      "ability": {
+        "target": "enemy1",
+        "mod": {
+          "atk": 0,
+          "def": 0,
+          "hp": -80,
+          "move": 0
+        },
+        "duration": "perm",
+        "name": "베놈카르의 독",
+        "cooldown": 3
+      }
+    },
+    {
+      "id": "c_mse73t3o_86r1tb",
+      "name": "맹독의 베놈 드래곤",
+      "grade": "중급",
+      "atk": 70,
+      "def": 65,
+      "hp": 85,
+      "move": null,
+      "image": "assets/content/images/c_mse73t3o_86r1tb.jpg",
+      "introVideo": null,
+      "token": "assets/content/sprites/c_mse73t3o_86r1tb.png",
+      "tokenScale": 1.19,
+      "tokenOffsetY": -0.14,
+      "tokenFlip": false,
+      "qrImage": null,
+      "qrCode": null,
+      "sprites": {
+        "attack": {
+          "src": "assets/content/sheets/c_mse73t3o_86r1tb_attack.png",
+          "cols": 4,
+          "rows": 2,
+          "bg": "none",
+          "scale": 1,
+          "offsetY": -0.06,
+          "flip": false
+        }
+      },
+      "ability": {
+        "target": "enemy1",
+        "mod": {
+          "atk": 0,
+          "def": 0,
+          "hp": -50,
+          "move": 0
+        },
+        "duration": "perm",
+        "name": "베놈의 독",
+        "cooldown": 3
+      }
+    },
+    {
+      "id": "c_mse754o1_fx9znv",
+      "name": "물방울 드래곤",
+      "grade": "초급",
+      "atk": 22,
+      "def": 40,
+      "hp": 55,
+      "move": null,
+      "image": "assets/content/images/c_mse754o1_fx9znv.jpg",
+      "introVideo": "assets/content/intros/c_mse754o1_fx9znv.mp4",
+      "token": "assets/content/sprites/c_mse754o1_fx9znv.png",
+      "tokenScale": 1.09,
+      "tokenOffsetY": -0.1,
+      "tokenFlip": false,
+      "qrImage": null,
+      "qrCode": null,
+      "sprites": {
+        "attack": {
+          "src": "assets/content/sheets/c_mse754o1_fx9znv_attack.png",
+          "cols": 4,
+          "rows": 2,
+          "bg": "none",
+          "scale": 1,
+          "offsetY": 0,
+          "flip": false
+        }
+      },
+      "ability": {
+        "target": "self",
+        "mod": {
+          "atk": 0,
+          "def": 40,
+          "hp": 0,
+          "move": 0
+        },
+        "duration": 3,
+        "name": "물방울 보호막",
+        "cooldown": 3
+      }
+    },
+    {
+      "id": "c_mse77ro4_44j1li",
+      "name": "번개 드래곤",
+      "grade": "초급",
+      "atk": 38,
+      "def": 22,
+      "hp": 46,
+      "move": null,
+      "image": "assets/content/images/c_mse77ro4_44j1li.jpg",
+      "introVideo": "assets/content/intros/c_mse77ro4_44j1li.mp4",
+      "token": "assets/content/sprites/c_mse77ro4_44j1li.png",
+      "tokenScale": 1.18,
+      "tokenOffsetY": -0.09,
+      "tokenFlip": false,
+      "qrImage": null,
+      "qrCode": null,
+      "sprites": {
+        "attack": {
+          "src": "assets/content/sheets/c_mse77ro4_44j1li_attack.png",
+          "cols": 4,
+          "rows": 2,
+          "bg": "none",
+          "scale": 1,
+          "offsetY": 0,
+          "flip": false
+        }
+      },
+      "ability": {
+        "target": "enemy1",
+        "mod": {
+          "atk": 0,
+          "def": 0,
+          "hp": -30,
+          "move": 0
+        },
+        "duration": "perm",
+        "name": "스파크 공격",
+        "cooldown": 2
+      }
+    },
+    {
+      "id": "c_mse78vz1_8q7e3w",
+      "name": "불꽃 드래곤",
+      "grade": "초급",
+      "atk": 40,
+      "def": 20,
+      "hp": 45,
+      "move": null,
+      "image": "assets/content/images/c_mse78vz1_8q7e3w.jpg",
+      "introVideo": "assets/content/intros/c_mse78vz1_8q7e3w.mp4",
+      "token": "assets/content/sprites/c_mse78vz1_8q7e3w.png",
+      "tokenScale": 1.14,
+      "tokenOffsetY": -0.09,
+      "tokenFlip": true,
+      "qrImage": null,
+      "qrCode": null,
+      "sprites": {
+        "attack": {
+          "src": "assets/content/sheets/c_mse78vz1_8q7e3w_attack.png",
+          "cols": 4,
+          "rows": 2,
+          "bg": "none",
+          "scale": 1,
+          "offsetY": 0,
+          "flip": true
+        }
+      },
+      "ability": {
+        "target": "enemyAll",
+        "mod": {
+          "atk": 0,
+          "def": 0,
+          "hp": -20,
+          "move": 0
+        },
+        "duration": "perm",
+        "name": "앗뜨거!",
+        "cooldown": 3
+      }
+    },
+    {
+      "id": "c_mse79r2s_o2c9q9",
+      "name": "빛 드래곤",
+      "grade": "초급",
+      "atk": 24,
+      "def": 24,
+      "hp": 54,
+      "move": null,
+      "image": "assets/content/images/c_mse79r2s_o2c9q9.jpg",
+      "introVideo": "assets/content/intros/c_mse79r2s_o2c9q9.mp4",
+      "token": "assets/content/sprites/c_mse79r2s_o2c9q9.png",
+      "tokenScale": 1.17,
+      "tokenOffsetY": -0.09,
+      "tokenFlip": false,
+      "qrImage": null,
+      "qrCode": null,
+      "sprites": {
+        "attack": {
+          "src": "assets/content/sheets/c_mse79r2s_o2c9q9_attack.png",
+          "cols": 4,
+          "rows": 2,
+          "bg": "none",
+          "scale": 0.89,
+          "offsetY": 0,
+          "flip": false
+        }
+      },
+      "ability": {
+        "target": "ally1",
+        "mod": {
+          "atk": 0,
+          "def": 0,
+          "hp": 20,
+          "move": 0
+        },
+        "duration": "perm",
+        "name": "힘내세요!!",
+        "cooldown": 1
+      }
+    },
+    {
+      "id": "c_mse7b5ws_jrbsnw",
+      "name": "새싹 드래곤",
+      "grade": "초급",
+      "atk": 20,
+      "def": 35,
+      "hp": 50,
+      "move": null,
+      "image": "assets/content/images/c_mse7b5ws_jrbsnw.jpg",
+      "introVideo": "assets/content/intros/c_mse7b5ws_jrbsnw.mp4",
+      "token": "assets/content/sprites/c_mse7b5ws_jrbsnw.png",
+      "tokenScale": 1.14,
+      "tokenOffsetY": -0.08,
+      "tokenFlip": false,
+      "qrImage": null,
+      "qrCode": null,
+      "sprites": {
+        "attack": {
+          "src": "assets/content/sheets/c_mse7b5ws_jrbsnw_attack.png",
+          "cols": 4,
+          "rows": 2,
+          "bg": "none",
+          "scale": 0.92,
+          "offsetY": 0,
+          "flip": false
+        }
+      },
+      "ability": {
+        "target": "allyAll",
+        "mod": {
+          "atk": 0,
+          "def": 0,
+          "hp": 20,
+          "move": 0
+        },
+        "duration": "perm",
+        "name": "힐링타임",
+        "cooldown": 1
+      }
+    },
+    {
+      "id": "c_mse7d98k_084eig",
+      "name": "성광의 루미나스 드래곤",
+      "grade": "중급",
+      "atk": 60,
+      "def": 75,
+      "hp": 90,
+      "move": null,
+      "image": "assets/content/images/c_mse7d98k_084eig.jpg",
+      "introVideo": "assets/content/intros/c_mse7d98k_084eig.mp4",
+      "token": "assets/content/sprites/c_mse7d98k_084eig.png",
+      "tokenScale": 1.51,
+      "tokenOffsetY": -0.17,
+      "tokenFlip": false,
+      "qrImage": null,
+      "qrCode": null,
+      "sprites": {
+        "idle": {
+          "src": "assets/content/sheets/c_mse7d98k_084eig_idle.png",
+          "cols": 3,
+          "rows": 2,
+          "bg": "none",
+          "scale": 1.23,
+          "offsetY": 0,
+          "flip": false
+        },
+        "attack": {
+          "src": "assets/content/sheets/c_mse7d98k_084eig_attack.png",
+          "cols": 4,
+          "rows": 2,
+          "bg": "none",
+          "scale": 1.22,
+          "offsetY": -0.07,
+          "flip": false
+        },
+        "hit": {
+          "src": "assets/content/sheets/c_mse7d98k_084eig_hit.png",
+          "cols": 3,
+          "rows": 2,
+          "bg": "none",
+          "scale": 1.2,
+          "offsetY": 0,
+          "flip": false
+        },
+        "special": {
+          "src": "assets/content/sheets/c_mse7d98k_084eig_special.png",
+          "cols": 3,
+          "rows": 2,
+          "bg": "none",
+          "scale": 1.18,
+          "offsetY": 0,
+          "flip": false
+        }
+      },
+      "ability": {
+        "target": "self",
+        "mod": {
+          "atk": 50,
+          "def": 0,
+          "hp": 0,
+          "move": 0
+        },
+        "duration": 2,
+        "name": "빛의 창",
+        "cooldown": 4
+      }
+    },
+    {
+      "id": "c_mse7ebul_z4mfyc",
+      "name": "스톰 드래곤",
+      "grade": "중급",
+      "atk": 70,
+      "def": 55,
+      "hp": 65,
+      "move": null,
+      "image": "assets/content/images/c_mse7ebul_z4mfyc.jpg",
+      "introVideo": null,
+      "token": "assets/content/sprites/c_mse7ebul_z4mfyc.png",
+      "tokenScale": 1.38,
+      "tokenOffsetY": -0.15,
+      "tokenFlip": false,
+      "qrImage": null,
+      "qrCode": null,
+      "sprites": {
+        "attack": {
+          "src": "assets/content/sheets/c_mse7ebul_z4mfyc_attack.png",
+          "cols": 4,
+          "rows": 2,
+          "bg": "none",
+          "scale": 1.2,
+          "offsetY": -0.04,
+          "flip": false
+        }
+      },
+      "ability": {
+        "target": "enemyAll",
+        "mod": {
+          "atk": 0,
+          "def": 0,
+          "hp": -25,
+          "move": 0
+        },
+        "duration": "perm",
+        "name": "스톰",
+        "cooldown": 5
+      }
+    },
+    {
+      "id": "c_mse7frtw_ph9o6m",
+      "name": "심해룡 아쿠아리스",
+      "grade": "중급",
+      "atk": 70,
+      "def": 90,
+      "hp": 130,
+      "move": null,
+      "image": "assets/content/images/c_mse7frtw_ph9o6m.jpg",
+      "introVideo": "assets/content/intros/c_mse7frtw_ph9o6m.mp4",
+      "token": "assets/content/sprites/c_mse7frtw_ph9o6m.png",
+      "tokenScale": 1.51,
+      "tokenOffsetY": -0.19,
+      "tokenFlip": false,
+      "qrImage": null,
+      "qrCode": null,
+      "sprites": {
+        "attack": {
+          "src": "assets/content/sheets/c_mse7frtw_ph9o6m_attack.png",
+          "cols": 4,
+          "rows": 2,
+          "bg": "none",
+          "scale": 1.22,
+          "offsetY": -0.06,
+          "flip": false
+        }
+      },
+      "ability": {
+        "target": "self",
+        "mod": {
+          "atk": 0,
+          "def": 90,
+          "hp": 0,
+          "move": 0
+        },
+        "duration": 3,
+        "name": "심해",
+        "cooldown": 5
+      }
+    },
+    {
+      "id": "c_mse7gsac_mw8utm",
+      "name": "암흑 드래곤",
+      "grade": "초급",
+      "atk": 32,
+      "def": 28,
+      "hp": 50,
+      "move": null,
+      "image": "assets/content/images/c_mse7gsac_mw8utm.jpg",
+      "introVideo": "assets/content/intros/c_mse7gsac_mw8utm.mp4",
+      "token": "assets/content/sprites/c_mse7gsac_mw8utm.png",
+      "tokenScale": 1.2,
+      "tokenOffsetY": -0.11,
+      "tokenFlip": false,
+      "qrImage": null,
+      "qrCode": null,
+      "sprites": {
+        "attack": {
+          "src": "assets/content/sheets/c_mse7gsac_mw8utm_attack.png",
+          "cols": 4,
+          "rows": 2,
+          "bg": "none",
+          "scale": 0.94,
+          "offsetY": 0,
+          "flip": false
+        }
+      },
+      "ability": {
+        "target": "enemy1",
+        "mod": {
+          "atk": 0,
+          "def": -50,
+          "hp": 0,
+          "move": 0
+        },
+        "duration": 2,
+        "name": "귀여운 악몽",
+        "cooldown": 3
+      }
+    },
+    {
+      "id": "c_mse7i2zs_ssjimr",
+      "name": "열화룡 이그니스",
+      "grade": "중급",
+      "atk": 95,
+      "def": 55,
+      "hp": 120,
+      "move": null,
+      "image": "assets/content/images/c_mse7i2zs_ssjimr.jpg",
+      "introVideo": "assets/content/intros/c_mse7i2zs_ssjimr.mp4",
+      "token": "assets/content/sprites/c_mse7i2zs_ssjimr.png",
+      "tokenScale": 1.41,
+      "tokenOffsetY": -0.19,
+      "tokenFlip": false,
+      "qrImage": null,
+      "qrCode": null,
+      "sprites": {
+        "attack": {
+          "src": "assets/content/sheets/c_mse7i2zs_ssjimr_attack.png",
+          "cols": 4,
+          "rows": 2,
+          "bg": "none",
+          "scale": 1.08,
+          "offsetY": -0.05,
+          "flip": false
+        }
+      },
+      "ability": {
+        "target": "enemy1",
+        "mod": {
+          "atk": 0,
+          "def": -20,
+          "hp": -50,
+          "move": 0
+        },
+        "duration": "perm",
+        "name": "화염 브레스",
+        "cooldown": 3
+      }
+    },
+    {
+      "id": "c_mse7jjcg_5a1wnu",
+      "name": "자연룡 베르디안",
+      "grade": "중급",
+      "atk": 65,
+      "def": 100,
+      "hp": 135,
+      "move": null,
+      "image": "assets/content/images/c_mse7jjcg_5a1wnu.jpg",
+      "introVideo": null,
+      "token": "assets/content/sprites/c_mse7jjcg_5a1wnu.png",
+      "tokenScale": 1.47,
+      "tokenOffsetY": -0.17,
+      "tokenFlip": false,
+      "qrImage": null,
+      "qrCode": null,
+      "sprites": {
+        "attack": {
+          "src": "assets/content/sheets/c_mse7jjcg_5a1wnu_attack.png",
+          "cols": 4,
+          "rows": 2,
+          "bg": "none",
+          "scale": 1,
+          "offsetY": -0.04,
+          "flip": false
+        }
+      },
+      "ability": {
+        "target": "self",
+        "mod": {
+          "atk": 0,
+          "def": 0,
+          "hp": 50,
+          "move": 0
+        },
+        "duration": "perm",
+        "name": "재생",
+        "cooldown": 3
+      }
+    },
+    {
+      "id": "c_mse7mfk8_wh7ehp",
+      "name": "천둥의 번개 드래곤",
+      "grade": "중급",
+      "atk": 85,
+      "def": 45,
+      "hp": 70,
+      "move": null,
+      "image": "assets/content/images/c_mse7mfk8_wh7ehp.jpg",
+      "introVideo": "assets/content/intros/c_mse7mfk8_wh7ehp.mp4",
+      "token": "assets/content/sprites/c_mse7mfk8_wh7ehp.png",
+      "tokenScale": 1.35,
+      "tokenOffsetY": -0.16,
+      "tokenFlip": false,
+      "qrImage": null,
+      "qrCode": null,
+      "sprites": {
+        "attack": {
+          "src": "assets/content/sheets/c_mse7mfk8_wh7ehp_attack.png",
+          "cols": 4,
+          "rows": 2,
+          "bg": "none",
+          "scale": 1.08,
+          "offsetY": 0,
+          "flip": false
+        }
+      },
+      "ability": {
+        "target": "enemy1",
+        "mod": {
+          "atk": 0,
+          "def": 0,
+          "hp": -50,
+          "move": 0
+        },
+        "duration": "perm",
+        "name": "번개 스피어",
+        "cooldown": 4
+      }
+    },
+    {
+      "id": "c_mse7ojoo_1bixfz",
+      "name": "포레스트 드래곤",
+      "grade": "중급",
+      "atk": 60,
+      "def": 50,
+      "hp": 80,
+      "move": null,
+      "image": "assets/content/images/c_mse7ojoo_1bixfz.jpg",
+      "introVideo": "assets/content/intros/c_mse7ojoo_1bixfz.mp4",
+      "token": "assets/content/sprites/c_mse7ojoo_1bixfz.png",
+      "tokenScale": 1.29,
+      "tokenOffsetY": -0.13,
+      "tokenFlip": false,
+      "qrImage": null,
+      "qrCode": null,
+      "sprites": {
+        "attack": {
+          "src": "assets/content/sheets/c_mse7ojoo_1bixfz_attack.png",
+          "cols": 4,
+          "rows": 2,
+          "bg": "none",
+          "scale": 1.16,
+          "offsetY": -0.03,
+          "flip": false
+        }
+      },
+      "ability": {
+        "target": "self",
+        "mod": {
+          "atk": 30,
+          "def": 30,
+          "hp": 0,
+          "move": 0
+        },
+        "duration": 3,
+        "name": "강화",
+        "cooldown": 5
+      }
+    },
+    {
+      "id": "c_mse7pr4o_z8ah2u",
+      "name": "가스트 하울러",
+      "grade": "초급",
+      "atk": 45,
+      "def": 40,
+      "hp": 65,
+      "move": null,
+      "image": "assets/content/images/c_mse7pr4o_z8ah2u.jpg",
+      "introVideo": null,
+      "token": "assets/content/sprites/c_mse7pr4o_z8ah2u.png",
+      "tokenScale": 1.2,
+      "tokenOffsetY": -0.11,
+      "tokenFlip": false,
+      "qrImage": null,
+      "qrCode": null,
+      "sprites": {
+        "attack": {
+          "src": "assets/content/sheets/c_mse7pr4o_z8ah2u_attack.png",
+          "cols": 4,
+          "rows": 2,
+          "bg": "none",
+          "scale": 0.83,
+          "offsetY": 0.15,
+          "flip": false
+        }
+      },
+      "ability": {
+        "target": "self",
+        "mod": {
+          "atk": 0,
+          "def": 0,
+          "hp": 0,
+          "move": 4
+        },
+        "duration": 3,
+        "name": "고속비행",
+        "cooldown": 3
+      }
+    },
+    {
+      "id": "c_mse7r1sw_2e4q8r",
+      "name": "가이아 드래곤",
+      "grade": "레어",
+      "atk": 100,
+      "def": 120,
+      "hp": 110,
+      "move": null,
+      "image": "assets/content/images/c_mse7r1sw_2e4q8r.jpg",
+      "introVideo": "assets/content/intros/c_mse7r1sw_2e4q8r.mp4",
+      "token": "assets/content/sprites/c_mse7r1sw_2e4q8r.png",
+      "tokenScale": 1.49,
+      "tokenOffsetY": -0.2,
+      "tokenFlip": false,
+      "qrImage": null,
+      "qrCode": null,
+      "sprites": {
+        "attack": {
+          "src": "assets/content/sheets/c_mse7r1sw_2e4q8r_attack.png",
+          "cols": 4,
+          "rows": 2,
+          "bg": "none",
+          "scale": 1.2,
+          "offsetY": -0.07,
+          "flip": false
+        }
+      },
+      "ability": {
+        "target": "self",
+        "mod": {
+          "atk": 50,
+          "def": 50,
+          "hp": 0,
+          "move": 0
+        },
+        "duration": 3,
+        "name": "압도적인 힘",
+        "cooldown": 5
+      }
+    },
+    {
+      "id": "c_mse7tshu_t88wth",
+      "name": "그레이트 스네이크",
+      "grade": "고급",
+      "atk": 105,
+      "def": 80,
+      "hp": 140,
+      "move": null,
+      "image": "assets/content/images/c_mse7tshu_t88wth.jpg",
+      "introVideo": "assets/content/intros/c_mse7tshu_t88wth.mp4",
+      "token": "assets/content/sprites/c_mse7tshu_t88wth.png",
+      "tokenScale": 1.29,
+      "tokenOffsetY": -0.16,
+      "tokenFlip": false,
+      "qrImage": null,
+      "qrCode": null,
+      "sprites": {
+        "attack": {
+          "src": "assets/content/sheets/c_mse7tshu_t88wth_attack.png",
+          "cols": 4,
+          "rows": 2,
+          "bg": "none",
+          "scale": 1.22,
+          "offsetY": -0.05,
+          "flip": false
+        }
+      },
+      "ability": {
+        "target": "enemy1",
+        "mod": {
+          "atk": 0,
+          "def": 0,
+          "hp": -70,
+          "move": -2
+        },
+        "duration": "perm",
+        "name": "마비독",
+        "cooldown": 3
+      }
+    },
+    {
+      "id": "c_mse7vszw_mbo6wr",
+      "name": "나이트메어 드래곤",
+      "grade": "중급",
+      "atk": 85,
+      "def": 70,
+      "hp": 100,
+      "move": null,
+      "image": "assets/content/images/c_mse7vszw_mbo6wr.jpg",
+      "introVideo": "assets/content/intros/c_mse7vszw_mbo6wr.mp4",
+      "token": "assets/content/sprites/c_mse7vszw_mbo6wr.png",
+      "tokenScale": 1.43,
+      "tokenOffsetY": -0.25,
+      "tokenFlip": false,
+      "qrImage": null,
+      "qrCode": null,
+      "sprites": {
+        "attack": {
+          "src": "assets/content/sheets/c_mse7vszw_mbo6wr_attack.png",
+          "cols": 4,
+          "rows": 2,
+          "bg": "none",
+          "scale": 1.22,
+          "offsetY": -0.15,
+          "flip": false
+        }
+      },
+      "ability": {
+        "target": "enemyAll",
+        "mod": {
+          "atk": -20,
+          "def": -20,
+          "hp": 0,
+          "move": 0
+        },
+        "duration": 3,
+        "name": "나이트메어",
+        "cooldown": 3
+      }
+    },
+    {
+      "id": "c_mse7wx9j_yuedwk",
+      "name": "다이아몬드 드래곤",
+      "grade": "레어",
+      "atk": 120,
+      "def": 110,
+      "hp": 150,
+      "move": null,
+      "image": "assets/content/images/c_mse7wx9j_yuedwk.jpg",
+      "introVideo": "assets/content/intros/c_mse7wx9j_yuedwk.mp4",
+      "token": "assets/content/sprites/c_mse7wx9j_yuedwk.png",
+      "tokenScale": 1.45,
+      "tokenOffsetY": -0.23,
+      "tokenFlip": false,
+      "qrImage": null,
+      "qrCode": null,
+      "sprites": {
+        "attack": {
+          "src": "assets/content/sheets/c_mse7wx9j_yuedwk_attack.png",
+          "cols": 4,
+          "rows": 2,
+          "bg": "none",
+          "scale": 1.34,
+          "offsetY": -0.08,
+          "flip": false
+        }
+      },
+      "ability": {
+        "target": "allyAll",
+        "mod": {
+          "atk": 30,
+          "def": 30,
+          "hp": 0,
+          "move": 0
+        },
+        "duration": 3,
+        "name": "임페리어 라이트",
+        "cooldown": 5
+      }
+    },
+    {
+      "id": "c_mse7xyvn_o3pjao",
+      "name": "데저트 드래곤",
+      "grade": "중급",
+      "atk": 80,
+      "def": 65,
+      "hp": 120,
+      "move": null,
+      "image": "assets/content/images/c_mse7xyvn_o3pjao.jpg",
+      "introVideo": null,
+      "token": "assets/content/sprites/c_mse7xyvn_o3pjao.png",
+      "tokenScale": 1.29,
+      "tokenOffsetY": -0.16,
+      "tokenFlip": false,
+      "qrImage": null,
+      "qrCode": null,
+      "sprites": {
+        "attack": {
+          "src": "assets/content/sheets/c_mse7xyvn_o3pjao_attack.png",
+          "cols": 4,
+          "rows": 2,
+          "bg": "none",
+          "scale": 1.06,
+          "offsetY": 0,
+          "flip": false
+        }
+      },
+      "ability": {
+        "target": "enemyAll",
+        "mod": {
+          "atk": 0,
+          "def": 0,
+          "hp": 0,
+          "move": -2
+        },
+        "duration": 1,
+        "name": "모래폭풍",
+        "cooldown": 4
+      }
+    },
+    {
+      "id": "c_mse7z9a7_52ind2",
+      "name": "라이트 그리핀",
+      "grade": "중급",
+      "atk": 85,
+      "def": 75,
+      "hp": 110,
+      "move": null,
+      "image": "assets/content/images/c_mse7z9a7_52ind2.jpg",
+      "introVideo": null,
+      "token": "assets/content/sprites/c_mse7z9a7_52ind2.png",
+      "tokenScale": 1.32,
+      "tokenOffsetY": -0.14,
+      "tokenFlip": false,
+      "qrImage": null,
+      "qrCode": null,
+      "sprites": {
+        "attack": {
+          "src": "assets/content/sheets/c_mse7z9a7_52ind2_attack.png",
+          "cols": 4,
+          "rows": 2,
+          "bg": "none",
+          "scale": 1,
+          "offsetY": 0,
+          "flip": false
+        }
+      },
+      "ability": {
+        "target": "self",
+        "mod": {
+          "atk": 10,
+          "def": 0,
+          "hp": 0,
+          "move": 4
+        },
+        "duration": 3,
+        "name": "고속비행",
+        "cooldown": 3
+      }
+    },
+    {
+      "id": "c_mse80f77_1nr1kg",
+      "name": "루나리스 드래곤",
+      "grade": "고급",
+      "atk": 80,
+      "def": 80,
+      "hp": 95,
+      "move": null,
+      "image": "assets/content/images/c_mse80f77_1nr1kg.jpg",
+      "introVideo": "assets/content/intros/c_mse80f77_1nr1kg.mp4",
+      "token": "assets/content/sprites/c_mse80f77_1nr1kg.png",
+      "tokenScale": 1.25,
+      "tokenOffsetY": -0.13,
+      "tokenFlip": false,
+      "qrImage": null,
+      "qrCode": null,
+      "sprites": {
+        "attack": {
+          "src": "assets/content/sheets/c_mse80f77_1nr1kg_attack.png",
+          "cols": 4,
+          "rows": 2,
+          "bg": "none",
+          "scale": 1,
+          "offsetY": 0,
+          "flip": false
+        }
+      },
+      "ability": {
+        "target": "allyAll",
+        "mod": {
+          "atk": 0,
+          "def": 0,
+          "hp": 30,
+          "move": 0
+        },
+        "duration": 1,
+        "name": "위로",
+        "cooldown": 2
+      }
+    },
+    {
+      "id": "c_mse81co8_rqtxfl",
+      "name": "루미나 버니",
+      "grade": "초급",
+      "atk": 35,
+      "def": 35,
+      "hp": 60,
+      "move": null,
+      "image": "assets/content/images/c_mse81co8_rqtxfl.jpg",
+      "introVideo": "assets/content/intros/c_mse81co8_rqtxfl.mp4",
+      "token": "assets/content/sprites/c_mse81co8_rqtxfl.png",
+      "tokenScale": 1.11,
+      "tokenOffsetY": -0.08,
+      "tokenFlip": false,
+      "qrImage": null,
+      "qrCode": null,
+      "sprites": {
+        "attack": {
+          "src": "assets/content/sheets/c_mse81co8_rqtxfl_attack.png",
+          "cols": 4,
+          "rows": 2,
+          "bg": "none",
+          "scale": 0.75,
+          "offsetY": 0,
+          "flip": true
+        }
+      },
+      "ability": {
+        "target": "ally1",
+        "mod": {
+          "atk": 0,
+          "def": 0,
+          "hp": 30,
+          "move": 0
+        },
+        "duration": "perm",
+        "name": "회복",
+        "cooldown": 2
+      }
+    },
+    {
+      "id": "c_mse82ltd_m3068s",
+      "name": "록 거북이",
+      "grade": "초급",
+      "atk": 35,
+      "def": 60,
+      "hp": 70,
+      "move": 1,
+      "image": "assets/content/images/c_mse82ltd_m3068s.jpg",
+      "introVideo": null,
+      "token": "assets/content/sprites/c_mse82ltd_m3068s.png",
+      "tokenScale": 1.09,
+      "tokenOffsetY": -0.09,
+      "tokenFlip": false,
+      "qrImage": null,
+      "qrCode": null,
+      "sprites": {
+        "attack": {
+          "src": "assets/content/sheets/c_mse82ltd_m3068s_attack.png",
+          "cols": 4,
+          "rows": 2,
+          "bg": "none",
+          "scale": 1,
+          "offsetY": 0,
+          "flip": false
+        }
+      },
+      "ability": {
+        "target": "self",
+        "mod": {
+          "atk": -10,
+          "def": 100,
+          "hp": 0,
+          "move": 0
+        },
+        "duration": 3,
+        "name": "암석화",
+        "cooldown": 5
+      }
+    },
+    {
+      "id": "c_mse8avbn_qy8hn1",
+      "name": "리버 드래곤",
+      "grade": "중급",
+      "atk": 95,
+      "def": 60,
+      "hp": 90,
+      "move": null,
+      "image": "assets/content/images/c_mse8avbn_qy8hn1.jpg",
+      "introVideo": null,
+      "token": "assets/content/sprites/c_mse8avbn_qy8hn1.png",
+      "tokenScale": 1.38,
+      "tokenOffsetY": -0.14,
+      "tokenFlip": false,
+      "qrImage": null,
+      "qrCode": null,
+      "sprites": {
+        "attack": {
+          "src": "assets/content/sheets/c_mse8avbn_qy8hn1_attack.png",
+          "cols": 4,
+          "rows": 2,
+          "bg": "none",
+          "scale": 1.17,
+          "offsetY": 0,
+          "flip": false
+        }
+      },
+      "ability": {
+        "target": "self",
+        "mod": {
+          "atk": 40,
+          "def": 0,
+          "hp": 0,
+          "move": 0
+        },
+        "duration": 3,
+        "name": "급류",
+        "cooldown": 4
+      }
+    },
+    {
+      "id": "c_mse8bswj_8on6t4",
+      "name": "마그마 드래곤",
+      "grade": "레어",
+      "atk": 110,
+      "def": 70,
+      "hp": 130,
+      "move": null,
+      "image": "assets/content/images/c_mse8bswj_8on6t4.jpg",
+      "introVideo": "assets/content/intros/c_mse8bswj_8on6t4.mp4",
+      "token": "assets/content/sprites/c_mse8bswj_8on6t4.png",
+      "tokenScale": 1.46,
+      "tokenOffsetY": -0.19,
+      "tokenFlip": false,
+      "qrImage": null,
+      "qrCode": null,
+      "sprites": {
+        "attack": {
+          "src": "assets/content/sheets/c_mse8bswj_8on6t4_attack.png",
+          "cols": 4,
+          "rows": 2,
+          "bg": "none",
+          "scale": 1.28,
+          "offsetY": 0,
+          "flip": false
+        }
+      },
+      "ability": {
+        "target": "enemyAll",
+        "mod": {
+          "atk": 0,
+          "def": 0,
+          "hp": -40,
+          "move": 0
+        },
+        "duration": "perm",
+        "name": "마그마 분출",
+        "cooldown": 5
+      }
+    },
+    {
+      "id": "c_mse8datv_eemwv3",
+      "name": "머쉬룸 슬라임",
+      "grade": "중급",
+      "atk": 70,
+      "def": 60,
+      "hp": 100,
+      "move": null,
+      "image": "assets/content/images/c_mse8datv_eemwv3.jpg",
+      "introVideo": null,
+      "token": "assets/content/sprites/c_mse8datv_eemwv3.png",
+      "tokenScale": 1.12,
+      "tokenOffsetY": -0.08,
+      "tokenFlip": false,
+      "qrImage": null,
+      "qrCode": null,
+      "sprites": {
+        "attack": {
+          "src": "assets/content/sheets/c_mse8datv_eemwv3_attack.png",
+          "cols": 4,
+          "rows": 2,
+          "bg": "none",
+          "scale": 1,
+          "offsetY": 0,
+          "flip": false
+        }
+      },
+      "ability": {
+        "target": "enemy1",
+        "mod": {
+          "atk": 0,
+          "def": 0,
+          "hp": 0,
+          "move": -2
+        },
+        "duration": 2,
+        "name": "마비독",
+        "cooldown": 4
+      }
+    },
+    {
+      "id": "c_mse8eobf_1ikse8",
+      "name": "모사 드래곤",
+      "grade": "고급",
+      "atk": 100,
+      "def": 90,
+      "hp": 145,
+      "move": null,
+      "image": "assets/content/images/c_mse8eobf_1ikse8.jpg",
+      "introVideo": "assets/content/intros/c_mse8eobf_1ikse8.mp4",
+      "token": "assets/content/sprites/c_mse8eobf_1ikse8.png",
+      "tokenScale": 1.43,
+      "tokenOffsetY": -0.18,
+      "tokenFlip": false,
+      "qrImage": null,
+      "qrCode": null,
+      "sprites": {
+        "attack": {
+          "src": "assets/content/sheets/c_mse8eobf_1ikse8_attack.png",
+          "cols": 4,
+          "rows": 2,
+          "bg": "none",
+          "scale": 1.35,
+          "offsetY": -0.06,
+          "flip": false
+        }
+      },
+      "ability": {
+        "target": "enemyAll",
+        "mod": {
+          "atk": 0,
+          "def": 0,
+          "hp": -40,
+          "move": 0
+        },
+        "duration": "perm",
+        "name": "독 안개",
+        "cooldown": 3
+      }
+    },
+    {
+      "id": "c_mse8fknn_hunyrp",
+      "name": "미믹 체스트",
+      "grade": "중급",
+      "atk": 75,
+      "def": 65,
+      "hp": 120,
+      "move": null,
+      "image": "assets/content/images/c_mse8fknn_hunyrp.jpg",
+      "introVideo": "assets/content/intros/c_mse8fknn_hunyrp.mp4",
+      "token": "assets/content/sprites/c_mse8fknn_hunyrp.png",
+      "tokenScale": 1.15,
+      "tokenOffsetY": -0.11,
+      "tokenFlip": false,
+      "qrImage": null,
+      "qrCode": null,
+      "sprites": {
+        "attack": {
+          "src": "assets/content/sheets/c_mse8fknn_hunyrp_attack.png",
+          "cols": 4,
+          "rows": 2,
+          "bg": "none",
+          "scale": 1,
+          "offsetY": 0,
+          "flip": false
+        }
+      },
+      "ability": {
+        "target": "enemyAll",
+        "mod": {
+          "atk": -30,
+          "def": -30,
+          "hp": 0,
+          "move": 0
+        },
+        "duration": 3,
+        "name": "욕망의 덫",
+        "cooldown": 3
+      }
+    },
+    {
+      "id": "c_mse8h2n0_cr373l",
+      "name": "섀도우 리퍼",
+      "grade": "중급",
+      "atk": 85,
+      "def": 65,
+      "hp": 100,
+      "move": null,
+      "image": "assets/content/images/c_mse8h2n0_cr373l.jpg",
+      "introVideo": null,
+      "token": "assets/content/sprites/c_mse8h2n0_cr373l.png",
+      "tokenScale": 1.29,
+      "tokenOffsetY": -0.15,
+      "tokenFlip": false,
+      "qrImage": null,
+      "qrCode": null,
+      "sprites": {
+        "attack": {
+          "src": "assets/content/sheets/c_mse8h2n0_cr373l_attack.png",
+          "cols": 4,
+          "rows": 2,
+          "bg": "none",
+          "scale": 1,
+          "offsetY": 0,
+          "flip": false
+        }
+      },
+      "ability": {
+        "target": "enemy1",
+        "mod": {
+          "atk": 0,
+          "def": 0,
+          "hp": -50,
+          "move": 0
+        },
+        "duration": "perm",
+        "name": "죽음의 낫",
+        "cooldown": 3
+      }
+    },
+    {
+      "id": "c_mse8i4pv_fs74hl",
+      "name": "섀도우 바포메트",
+      "grade": "고급",
+      "atk": 85,
+      "def": 70,
+      "hp": 110,
+      "move": null,
+      "image": "assets/content/images/c_mse8i4pv_fs74hl.jpg",
+      "introVideo": "assets/content/intros/c_mse8i4pv_fs74hl.mp4",
+      "token": "assets/content/sprites/c_mse8i4pv_fs74hl.png",
+      "tokenScale": 1.53,
+      "tokenOffsetY": -0.15,
+      "tokenFlip": false,
+      "qrImage": null,
+      "qrCode": null,
+      "sprites": {
+        "attack": {
+          "src": "assets/content/sheets/c_mse8i4pv_fs74hl_attack.png",
+          "cols": 4,
+          "rows": 2,
+          "bg": "none",
+          "scale": 1.37,
+          "offsetY": -0.04,
+          "flip": false
+        }
+      },
+      "ability": {
+        "target": "self",
+        "mod": {
+          "atk": 80,
+          "def": -40,
+          "hp": 0,
+          "move": 0
+        },
+        "duration": 2,
+        "name": "영혼 흡수",
+        "cooldown": 3
+      }
+    },
+    {
+      "id": "c_mse8ja0b_a9hxtl",
+      "name": "섀도우 밴시",
+      "grade": "중급",
+      "atk": 85,
+      "def": 60,
+      "hp": 100,
+      "move": null,
+      "image": "assets/content/images/c_mse8ja0b_a9hxtl.jpg",
+      "introVideo": null,
+      "token": "assets/content/sprites/c_mse8ja0b_a9hxtl.png",
+      "tokenScale": 1.19,
+      "tokenOffsetY": -0.09,
+      "tokenFlip": false,
+      "qrImage": null,
+      "qrCode": null,
+      "sprites": {
+        "attack": {
+          "src": "assets/content/sheets/c_mse8ja0b_a9hxtl_attack.png",
+          "cols": 4,
+          "rows": 2,
+          "bg": "none",
+          "scale": 0.88,
+          "offsetY": 0,
+          "flip": false
+        }
+      },
+      "ability": {
+        "target": "enemy1",
+        "mod": {
+          "atk": -30,
+          "def": -30,
+          "hp": 0,
+          "move": 0
+        },
+        "duration": 3,
+        "name": "저주",
+        "cooldown": 3
+      }
+    },
+    {
+      "id": "c_mse8kbd3_a4nxoq",
+      "name": "섀도우 크롤러",
+      "grade": "초급",
+      "atk": 40,
+      "def": 30,
+      "hp": 55,
+      "move": null,
+      "image": "assets/content/images/c_mse8kbd3_a4nxoq.jpg",
+      "introVideo": null,
+      "token": "assets/content/sprites/c_mse8kbd3_a4nxoq.png",
+      "tokenScale": 1.16,
+      "tokenOffsetY": -0.11,
+      "tokenFlip": false,
+      "qrImage": null,
+      "qrCode": null,
+      "sprites": {
+        "attack": {
+          "src": "assets/content/sheets/c_mse8kbd3_a4nxoq_attack.png",
+          "cols": 4,
+          "rows": 2,
+          "bg": "none",
+          "scale": 1.13,
+          "offsetY": 0,
+          "flip": false
+        }
+      },
+      "ability": {
+        "target": "enemy1",
+        "mod": {
+          "atk": 0,
+          "def": 0,
+          "hp": 0,
+          "move": -2
+        },
+        "duration": 1,
+        "name": "스파이더 트랩",
+        "cooldown": 2
+      }
+    },
+    {
+      "id": "c_mse8lycb_jg6c4n",
+      "name": "솔라리스 드래곤",
+      "grade": "레어",
+      "atk": 120,
+      "def": 80,
+      "hp": 110,
+      "move": null,
+      "image": "assets/content/images/c_mse8lycb_jg6c4n.jpg",
+      "introVideo": "assets/content/intros/c_mse8lycb_jg6c4n.mp4",
+      "token": "assets/content/sprites/c_mse8lycb_jg6c4n.png",
+      "tokenScale": 1.49,
+      "tokenOffsetY": -0.15,
+      "tokenFlip": false,
+      "qrImage": null,
+      "qrCode": null,
+      "sprites": {
+        "idle": {
+          "src": "assets/content/sheets/c_mse8lycb_jg6c4n_idle.png",
+          "cols": 2,
+          "rows": 2,
+          "bg": "none",
+          "scale": 1.24,
+          "offsetY": -0.07,
+          "flip": false
+        },
+        "attack": {
+          "src": "assets/content/sheets/c_mse8lycb_jg6c4n_attack.png",
+          "cols": 4,
+          "rows": 2,
+          "bg": "none",
+          "scale": 1.2,
+          "offsetY": -0.06,
+          "flip": false
+        },
+        "hit": {
+          "src": "assets/content/sheets/c_mse8lycb_jg6c4n_hit.png",
+          "cols": 3,
+          "rows": 2,
+          "bg": "none",
+          "scale": 1.22,
+          "offsetY": -0.06,
+          "flip": false
+        }
+      },
+      "ability": {
+        "target": "self",
+        "mod": {
+          "atk": 70,
+          "def": 40,
+          "hp": 0,
+          "move": 0
+        },
+        "duration": 2,
+        "name": "최강의 전사",
+        "cooldown": 5
+      }
+    },
+    {
+      "id": "c_mse8mv1c_5u0c3c",
+      "name": "스톤 골렘",
+      "grade": "중급",
+      "atk": 70,
+      "def": 90,
+      "hp": 130,
+      "move": null,
+      "image": "assets/content/images/c_mse8mv1c_5u0c3c.jpg",
+      "introVideo": null,
+      "token": "assets/content/sprites/c_mse8mv1c_5u0c3c.png",
+      "tokenScale": 1.38,
+      "tokenOffsetY": -0.13,
+      "tokenFlip": true,
+      "qrImage": null,
+      "qrCode": null,
+      "sprites": {
+        "attack": {
+          "src": "assets/content/sheets/c_mse8mv1c_5u0c3c_attack.png",
+          "cols": 3,
+          "rows": 2,
+          "bg": "none",
+          "scale": 1.14,
+          "offsetY": 0,
+          "flip": true
+        }
+      },
+      "ability": {
+        "target": "self",
+        "mod": {
+          "atk": 0,
+          "def": 80,
+          "hp": 0,
+          "move": 0
+        },
+        "duration": 3,
+        "name": "스톤 암석화",
+        "cooldown": 3
+      }
+    },
+    {
+      "id": "c_mse8p0vq_f62ror",
+      "name": "스톤 클로",
+      "grade": "초급",
+      "atk": 40,
+      "def": 45,
+      "hp": 65,
+      "move": null,
+      "image": "assets/content/images/c_mse8p0vq_f62ror.jpg",
+      "introVideo": "assets/content/intros/c_mse8p0vq_f62ror.mp4",
+      "token": "assets/content/sprites/c_mse8p0vq_f62ror.png",
+      "tokenScale": 1.19,
+      "tokenOffsetY": -0.1,
+      "tokenFlip": false,
+      "qrImage": null,
+      "qrCode": null,
+      "sprites": {
+        "attack": {
+          "src": "assets/content/sheets/c_mse8p0vq_f62ror_attack.png",
+          "cols": 3,
+          "rows": 2,
+          "bg": "none",
+          "scale": 1,
+          "offsetY": 0,
+          "flip": false
+        }
+      },
+      "ability": {
+        "target": "self",
+        "mod": {
+          "atk": 30,
+          "def": 0,
+          "hp": 0,
+          "move": 0
+        },
+        "duration": 3,
+        "name": "돌주먹",
+        "cooldown": 5
+      }
+    },
+    {
+      "id": "c_mse8q7gf_w7rsan",
+      "name": "심해 드래곤",
+      "grade": "레어",
+      "atk": 115,
+      "def": 100,
+      "hp": 145,
+      "move": null,
+      "image": "assets/content/images/c_mse8q7gf_w7rsan.jpg",
+      "introVideo": "assets/content/intros/c_mse8q7gf_w7rsan.mp4",
+      "token": "assets/content/sprites/c_mse8q7gf_w7rsan.png",
+      "tokenScale": 1.66,
+      "tokenOffsetY": -0.2,
+      "tokenFlip": false,
+      "qrImage": null,
+      "qrCode": null,
+      "sprites": {
+        "idle": {
+          "src": "assets/content/sheets/c_mse8q7gf_w7rsan_idle.png",
+          "cols": 2,
+          "rows": 2,
+          "bg": "none",
+          "scale": 1.11,
+          "offsetY": -0.06,
+          "flip": false
+        },
+        "attack": {
+          "src": "assets/content/sheets/c_mse8q7gf_w7rsan_attack.png",
+          "cols": 3,
+          "rows": 2,
+          "bg": "none",
+          "scale": 1.19,
+          "offsetY": -0.06,
+          "flip": false
+        },
+        "hit": {
+          "src": "assets/content/sheets/c_mse8q7gf_w7rsan_hit.png",
+          "cols": 2,
+          "rows": 2,
+          "bg": "none",
+          "scale": 1.2,
+          "offsetY": -0.06,
+          "flip": false
+        }
+      },
+      "ability": {
+        "target": "enemyAll",
+        "mod": {
+          "atk": 0,
+          "def": 0,
+          "hp": -60,
+          "move": 0
+        },
+        "duration": "perm",
+        "name": "거대한 해일",
+        "cooldown": 4
+      }
+    },
+    {
+      "id": "c_mse8r8pz_typ2zj",
+      "name": "썬더 그리핀",
+      "grade": "고급",
+      "atk": 90,
+      "def": 65,
+      "hp": 105,
+      "move": null,
+      "image": "assets/content/images/c_mse8r8pz_typ2zj.jpg",
+      "introVideo": null,
+      "token": "assets/content/sprites/c_mse8r8pz_typ2zj.png",
+      "tokenScale": 1.35,
+      "tokenOffsetY": -0.13,
+      "tokenFlip": true,
+      "qrImage": null,
+      "qrCode": null,
+      "sprites": {
+        "attack": {
+          "src": "assets/content/sheets/c_mse8r8pz_typ2zj_attack.png",
+          "cols": 4,
+          "rows": 2,
+          "bg": "none",
+          "scale": 1.06,
+          "offsetY": 0,
+          "flip": true
+        }
+      },
+      "ability": {
+        "target": "self",
+        "mod": {
+          "atk": 30,
+          "def": 0,
+          "hp": 0,
+          "move": 3
+        },
+        "duration": 3,
+        "name": "비행",
+        "cooldown": 3
+      }
+    },
+    {
+      "id": "c_mse8s0j3_26itsp",
+      "name": "썬더 스파크",
+      "grade": "초급",
+      "atk": 45,
+      "def": 30,
+      "hp": 55,
+      "move": null,
+      "image": "assets/content/images/c_mse8s0j3_26itsp.jpg",
+      "introVideo": null,
+      "token": "assets/content/sprites/c_mse8s0j3_26itsp.png",
+      "tokenScale": 1.15,
+      "tokenOffsetY": -0.08,
+      "tokenFlip": false,
+      "qrImage": null,
+      "qrCode": null,
+      "sprites": {
+        "attack": {
+          "src": "assets/content/sheets/c_mse8s0j3_26itsp_attack.png",
+          "cols": 3,
+          "rows": 2,
+          "bg": "none",
+          "scale": 1,
+          "offsetY": 0,
+          "flip": false
+        }
+      },
+      "ability": {
+        "target": "enemy1",
+        "mod": {
+          "atk": 0,
+          "def": 0,
+          "hp": -30,
+          "move": 0
+        },
+        "duration": "perm",
+        "name": "스파크",
+        "cooldown": 2
+      }
+    },
+    {
+      "id": "c_mse8t212_cnix1i",
+      "name": "아메시스트 드래곤",
+      "grade": "고급",
+      "atk": 85,
+      "def": 75,
+      "hp": 100,
+      "move": null,
+      "image": "assets/content/images/c_mse8t212_cnix1i.jpg",
+      "introVideo": "assets/content/intros/c_mse8t212_cnix1i.mp4",
+      "token": "assets/content/sprites/c_mse8t212_cnix1i.png",
+      "tokenScale": 1.34,
+      "tokenOffsetY": -0.13,
+      "tokenFlip": false,
+      "qrImage": null,
+      "qrCode": null,
+      "sprites": {
+        "attack": {
+          "src": "assets/content/sheets/c_mse8t212_cnix1i_attack.png",
+          "cols": 4,
+          "rows": 2,
+          "bg": "none",
+          "scale": 1.06,
+          "offsetY": -0.04,
+          "flip": false
+        }
+      },
+      "ability": {
+        "target": "allyAll",
+        "mod": {
+          "atk": 0,
+          "def": 60,
+          "hp": 0,
+          "move": 0
+        },
+        "duration": 3,
+        "name": "아메시스트 쉴드",
+        "cooldown": 3
+      }
+    },
+    {
+      "id": "c_mse8u5ae_8wox7l",
+      "name": "아이스 드래곤",
+      "grade": "고급",
+      "atk": 85,
+      "def": 90,
+      "hp": 155,
+      "move": null,
+      "image": "assets/content/images/c_mse8u5ae_8wox7l.jpg",
+      "introVideo": "assets/content/intros/c_mse8u5ae_8wox7l.mp4",
+      "token": "assets/content/sprites/c_mse8u5ae_8wox7l.png",
+      "tokenScale": 1.53,
+      "tokenOffsetY": -0.17,
+      "tokenFlip": false,
+      "qrImage": "assets/content/qr/dragon_c_mse8u5ae_8wox7l.png",
+      "qrCode": "아이스 드래곤",
+      "sprites": {
+        "attack": {
+          "src": "assets/content/sheets/c_mse8u5ae_8wox7l_attack.png",
+          "cols": 4,
+          "rows": 2,
+          "bg": "none",
+          "scale": 1.2,
+          "offsetY": -0.04,
+          "flip": false
+        }
+      },
+      "ability": {
+        "target": "enemyAll",
+        "mod": {
+          "atk": -40,
+          "def": 0,
+          "hp": 0,
+          "move": 0
+        },
+        "duration": 2,
+        "name": "빙결",
+        "cooldown": 4
+      }
+    },
+    {
+      "id": "c_mse8v56e_ytqlx2",
+      "name": "아이스 펭귄",
+      "grade": "초급",
+      "atk": 40,
+      "def": 35,
+      "hp": 55,
+      "move": null,
+      "image": "assets/content/images/c_mse8v56e_ytqlx2.jpg",
+      "introVideo": "assets/content/intros/c_mse8v56e_ytqlx2.mp4",
+      "token": "assets/content/sprites/c_mse8v56e_ytqlx2.png",
+      "tokenScale": 1.28,
+      "tokenOffsetY": -0.1,
+      "tokenFlip": false,
+      "qrImage": null,
+      "qrCode": null,
+      "sprites": {
+        "attack": {
+          "src": "assets/content/sheets/c_mse8v56e_ytqlx2_attack.png",
+          "cols": 4,
+          "rows": 2,
+          "bg": "none",
+          "scale": 0.89,
+          "offsetY": 0,
+          "flip": false
+        }
+      },
+      "ability": {
+        "target": "enemy1",
+        "mod": {
+          "atk": 0,
+          "def": 0,
+          "hp": -50,
+          "move": 0
+        },
+        "duration": "perm",
+        "name": "아이스 팽뀐~!!",
+        "cooldown": 2
+      }
+    },
+    {
+      "id": "c_mse8wa0z_fesr25",
+      "name": "아이언 드래곤",
+      "grade": "고급",
+      "atk": 95,
+      "def": 120,
+      "hp": 160,
+      "move": null,
+      "image": "assets/content/images/c_mse8wa0z_fesr25.jpg",
+      "introVideo": "assets/content/intros/c_mse8wa0z_fesr25.mp4",
+      "token": "assets/content/sprites/c_mse8wa0z_fesr25.png",
+      "tokenScale": 1.6,
+      "tokenOffsetY": -0.19,
+      "tokenFlip": false,
+      "qrImage": null,
+      "qrCode": null,
+      "sprites": {
+        "idle": {
+          "src": "assets/content/sheets/c_mse8wa0z_fesr25_idle.png",
+          "cols": 2,
+          "rows": 2,
+          "bg": "none",
+          "scale": 1.14,
+          "offsetY": -0.04,
+          "flip": false
+        },
+        "attack": {
+          "src": "assets/content/sheets/c_mse8wa0z_fesr25_attack.png",
+          "cols": 3,
+          "rows": 2,
+          "bg": "none",
+          "scale": 1.26,
+          "offsetY": -0.04,
+          "flip": false
+        }
+      },
+      "ability": {
+        "target": "enemy1",
+        "mod": {
+          "atk": 0,
+          "def": 0,
+          "hp": -70,
+          "move": 0
+        },
+        "duration": "perm",
+        "name": "터보 펀치",
+        "cooldown": 3
+      }
+    },
+    {
+      "id": "c_mse8y552_vvteoa",
+      "name": "아쿠아 슬라임",
+      "grade": "초급",
+      "atk": 45,
+      "def": 40,
+      "hp": 60,
+      "move": null,
+      "image": "assets/content/images/c_mse8y552_vvteoa.jpg",
+      "introVideo": "assets/content/intros/c_mse8y552_vvteoa.mp4",
+      "token": "assets/content/sprites/c_mse8y552_vvteoa.png",
+      "tokenScale": 1.08,
+      "tokenOffsetY": -0.09,
+      "tokenFlip": false,
+      "qrImage": null,
+      "qrCode": null,
+      "sprites": {
+        "attack": {
+          "src": "assets/content/sheets/c_mse8y552_vvteoa_attack.png",
+          "cols": 3,
+          "rows": 2,
+          "bg": "none",
+          "scale": 1,
+          "offsetY": 0,
+          "flip": false
+        },
+        "hit": {
+          "src": "assets/content/sheets/c_mse8y552_vvteoa_hit.png",
+          "cols": 3,
+          "rows": 2,
+          "bg": "none",
+          "scale": 1,
+          "offsetY": 0,
+          "flip": false
+        }
+      },
+      "ability": {
+        "target": "self",
+        "mod": {
+          "atk": 0,
+          "def": 0,
+          "hp": 30,
+          "move": 0
+        },
+        "duration": "perm",
+        "name": "재생",
+        "cooldown": 1
+      }
+    },
+    {
+      "id": "c_mse8z43m_xi5rj2",
+      "name": "어스 타이탄",
+      "grade": "중급",
+      "atk": 70,
+      "def": 95,
+      "hp": 120,
+      "move": null,
+      "image": "assets/content/images/c_mse8z43m_xi5rj2.jpg",
+      "introVideo": null,
+      "token": "assets/content/sprites/c_mse8z43m_xi5rj2.png",
+      "tokenScale": 1.26,
+      "tokenOffsetY": -0.1,
+      "tokenFlip": false,
+      "qrImage": null,
+      "qrCode": null,
+      "sprites": {
+        "attack": {
+          "src": "assets/content/sheets/c_mse8z43m_xi5rj2_attack.png",
+          "cols": 3,
+          "rows": 2,
+          "bg": "none",
+          "scale": 1.16,
+          "offsetY": 0,
+          "flip": false
+        }
+      },
+      "ability": {
+        "target": "self",
+        "mod": {
+          "atk": 0,
+          "def": 100,
+          "hp": 0,
+          "move": 0
+        },
+        "duration": 3,
+        "name": "암석화",
+        "cooldown": 4
+      }
+    },
+    {
+      "id": "c_mse903oy_lym94c",
+      "name": "에메랄드 드래곤",
+      "grade": "고급",
+      "atk": 88,
+      "def": 85,
+      "hp": 170,
+      "move": null,
+      "image": "assets/content/images/c_mse903oy_lym94c.jpg",
+      "introVideo": "assets/content/intros/c_mse903oy_lym94c.mp4",
+      "token": "assets/content/sprites/c_mse903oy_lym94c.png",
+      "tokenScale": 1.45,
+      "tokenOffsetY": -0.24,
+      "tokenFlip": false,
+      "qrImage": null,
+      "qrCode": null,
+      "sprites": {
+        "attack": {
+          "src": "assets/content/sheets/c_mse903oy_lym94c_attack.png",
+          "cols": 3,
+          "rows": 2,
+          "bg": "none",
+          "scale": 1.35,
+          "offsetY": -0.14,
+          "flip": false
+        }
+      },
+      "ability": {
+        "target": "allyAll",
+        "mod": {
+          "atk": 0,
+          "def": 0,
+          "hp": 40,
+          "move": 0
+        },
+        "duration": "perm",
+        "name": "회복의 빛",
+        "cooldown": 3
+      }
+    },
+    {
+      "id": "c_mse91anb_w1x1uu",
+      "name": "오션 크라켄",
+      "grade": "고급",
+      "atk": 80,
+      "def": 75,
+      "hp": 120,
+      "move": null,
+      "image": "assets/content/images/c_mse91anb_w1x1uu.jpg",
+      "introVideo": null,
+      "token": "assets/content/sprites/c_mse91anb_w1x1uu.png",
+      "tokenScale": 1.13,
+      "tokenOffsetY": -0.13,
+      "tokenFlip": false,
+      "qrImage": null,
+      "qrCode": null,
+      "sprites": {
+        "attack": {
+          "src": "assets/content/sheets/c_mse91anb_w1x1uu_attack.png",
+          "cols": 3,
+          "rows": 2,
+          "bg": "none",
+          "scale": 1.1,
+          "offsetY": 0,
+          "flip": false
+        }
+      },
+      "ability": {
+        "target": "self",
+        "mod": {
+          "atk": 40,
+          "def": 50,
+          "hp": 0,
+          "move": 0
+        },
+        "duration": 2,
+        "name": "강화",
+        "cooldown": 4
+      }
+    },
+    {
+      "id": "c_mse92ow0_1xm7pp",
+      "name": "윈드 페어리",
+      "grade": "초급",
+      "atk": 40,
+      "def": 40,
+      "hp": 65,
+      "move": null,
+      "image": "assets/content/images/c_mse92ow0_1xm7pp.jpg",
+      "introVideo": null,
+      "token": "assets/content/sprites/c_mse92ow0_1xm7pp.png",
+      "tokenScale": 1.06,
+      "tokenOffsetY": -0.08,
+      "tokenFlip": false,
+      "qrImage": null,
+      "qrCode": null,
+      "sprites": {
+        "idle": {
+          "src": "assets/content/sheets/c_mse92ow0_1xm7pp_idle.png",
+          "cols": 2,
+          "rows": 2,
+          "bg": "none",
+          "scale": 0.73,
+          "offsetY": 0.19,
+          "flip": false
+        },
+        "attack": {
+          "src": "assets/content/sheets/c_mse92ow0_1xm7pp_attack.png",
+          "cols": 3,
+          "rows": 2,
+          "bg": "none",
+          "scale": 0.71,
+          "offsetY": 0.22,
+          "flip": false
+        }
+      },
+      "ability": {
+        "target": "ally1",
+        "mod": {
+          "atk": 0,
+          "def": 0,
+          "hp": 20,
+          "move": 0
+        },
+        "duration": 1,
+        "name": "페어리의 축복",
+        "cooldown": 1
+      }
+    },
+    {
+      "id": "c_mse93f3m_jrxebe",
+      "name": "윈드 하피",
+      "grade": "중급",
+      "atk": 75,
+      "def": 60,
+      "hp": 90,
+      "move": null,
+      "image": "assets/content/images/c_mse93f3m_jrxebe.jpg",
+      "introVideo": null,
+      "token": "assets/content/sprites/c_mse93f3m_jrxebe.png",
+      "tokenScale": 1.33,
+      "tokenOffsetY": -0.13,
+      "tokenFlip": false,
+      "qrImage": null,
+      "qrCode": null,
+      "sprites": {
+        "attack": {
+          "src": "assets/content/sheets/c_mse93f3m_jrxebe_attack.png",
+          "cols": 3,
+          "rows": 2,
+          "bg": "none",
+          "scale": 1.05,
+          "offsetY": 0,
+          "flip": false
+        }
+      },
+      "ability": {
+        "target": "self",
+        "mod": {
+          "atk": 0,
+          "def": 0,
+          "hp": 0,
+          "move": 3
+        },
+        "duration": 3,
+        "name": "비행",
+        "cooldown": 3
+      }
+    },
+    {
+      "id": "c_mse94or3_rb3qpm",
+      "name": "정글 엠버 드래곤",
+      "grade": "고급",
+      "atk": 75,
+      "def": 85,
+      "hp": 90,
+      "move": null,
+      "image": "assets/content/images/c_mse94or3_rb3qpm.jpg",
+      "introVideo": "assets/content/intros/c_mse94or3_rb3qpm.mp4",
+      "token": "assets/content/sprites/c_mse94or3_rb3qpm.png",
+      "tokenScale": 1.48,
+      "tokenOffsetY": -0.21,
+      "tokenFlip": false,
+      "qrImage": null,
+      "qrCode": null,
+      "sprites": {
+        "attack": {
+          "src": "assets/content/sheets/c_mse94or3_rb3qpm_attack.png",
+          "cols": 3,
+          "rows": 2,
+          "bg": "none",
+          "scale": 1.15,
+          "offsetY": 0,
+          "flip": false
+        }
+      },
+      "ability": {
+        "target": "allyAll",
+        "mod": {
+          "atk": 30,
+          "def": 40,
+          "hp": 0,
+          "move": 0
+        },
+        "duration": 3,
+        "name": "정글의 기운",
+        "cooldown": 3
+      }
+    },
+    {
+      "id": "c_mse95t6m_ulafhl",
+      "name": "크리스탈 드래곤",
+      "grade": "레어",
+      "atk": 90,
+      "def": 90,
+      "hp": 120,
+      "move": null,
+      "image": "assets/content/images/c_mse95t6m_ulafhl.jpg",
+      "introVideo": "assets/content/intros/c_mse95t6m_ulafhl.mp4",
+      "token": "assets/content/sprites/c_mse95t6m_ulafhl.png",
+      "tokenScale": 1.62,
+      "tokenOffsetY": -0.17,
+      "tokenFlip": false,
+      "qrImage": null,
+      "qrCode": null,
+      "sprites": {
+        "attack": {
+          "src": "assets/content/sheets/c_mse95t6m_ulafhl_attack.png",
+          "cols": 3,
+          "rows": 2,
+          "bg": "none",
+          "scale": 1.36,
+          "offsetY": -0.04,
+          "flip": false
+        }
+      },
+      "ability": {
+        "target": "allyAll",
+        "mod": {
+          "atk": 40,
+          "def": 30,
+          "hp": 0,
+          "move": 0
+        },
+        "duration": 3,
+        "name": "전장의 축복",
+        "cooldown": 4
+      }
+    },
+    {
+      "id": "c_mse96qcf_hy32pq",
+      "name": "클레이 골렘",
+      "grade": "초급",
+      "atk": 40,
+      "def": 55,
+      "hp": 70,
+      "move": null,
+      "image": "assets/content/images/c_mse96qcf_hy32pq.jpg",
+      "introVideo": null,
+      "token": "assets/content/sprites/c_mse96qcf_hy32pq.png",
+      "tokenScale": 1.17,
+      "tokenOffsetY": -0.09,
+      "tokenFlip": false,
+      "qrImage": null,
+      "qrCode": null,
+      "sprites": {
+        "attack": {
+          "src": "assets/content/sheets/c_mse96qcf_hy32pq_attack.png",
+          "cols": 3,
+          "rows": 2,
+          "bg": "none",
+          "scale": 1,
+          "offsetY": 0,
+          "flip": false
+        }
+      },
+      "ability": {
+        "target": "self",
+        "mod": {
+          "atk": 30,
+          "def": 0,
+          "hp": 0,
+          "move": 0
+        },
+        "duration": 3,
+        "name": "돌주먹",
+        "cooldown": 3
+      }
+    },
+    {
+      "id": "c_mse97y3i_5s8jrb",
+      "name": "타이달 크라켄",
+      "grade": "중급",
+      "atk": 75,
+      "def": 70,
+      "hp": 120,
+      "move": null,
+      "image": "assets/content/images/c_mse97y3i_5s8jrb.jpg",
+      "introVideo": null,
+      "token": "assets/content/sprites/c_mse97y3i_5s8jrb.png",
+      "tokenScale": 1.31,
+      "tokenOffsetY": -0.15,
+      "tokenFlip": false,
+      "qrImage": null,
+      "qrCode": null,
+      "sprites": {
+        "attack": {
+          "src": "assets/content/sheets/c_mse97y3i_5s8jrb_attack.png",
+          "cols": 3,
+          "rows": 2,
+          "bg": "none",
+          "scale": 1.21,
+          "offsetY": -0.03,
+          "flip": false
+        }
+      },
+      "ability": {
+        "target": "enemyAll",
+        "mod": {
+          "atk": -20,
+          "def": -20,
+          "hp": 0,
+          "move": 0
+        },
+        "duration": 3,
+        "name": "심해 공포",
+        "cooldown": 5
+      }
+    },
+    {
+      "id": "c_mse99ume_87q7ad",
+      "name": "타이풍 드래곤",
+      "grade": "고급",
+      "atk": 95,
+      "def": 70,
+      "hp": 80,
+      "move": null,
+      "image": "assets/content/images/c_mse99ume_87q7ad.jpg",
+      "introVideo": null,
+      "token": "assets/content/sprites/c_mse99ume_87q7ad.png",
+      "tokenScale": 1.41,
+      "tokenOffsetY": -0.16,
+      "tokenFlip": false,
+      "qrImage": null,
+      "qrCode": null,
+      "sprites": {
+        "attack": {
+          "src": "assets/content/sheets/c_mse99ume_87q7ad_attack.png",
+          "cols": 4,
+          "rows": 2,
+          "bg": "none",
+          "scale": 1.32,
+          "offsetY": -0.07,
+          "flip": false
+        }
+      },
+      "ability": {
+        "target": "enemy1",
+        "mod": {
+          "atk": 0,
+          "def": 0,
+          "hp": -60,
+          "move": 0
+        },
+        "duration": "perm",
+        "name": "소용돌이",
+        "cooldown": 5
+      }
+    },
+    {
+      "id": "c_mse9b57j_plkdq3",
+      "name": "파이어 세이버",
+      "grade": "고급",
+      "atk": 90,
+      "def": 55,
+      "hp": 110,
+      "move": null,
+      "image": "assets/content/images/c_mse9b57j_plkdq3.jpg",
+      "introVideo": "assets/content/intros/c_mse9b57j_plkdq3.mp4",
+      "token": "assets/content/sprites/c_mse9b57j_plkdq3.png",
+      "tokenScale": 1,
+      "tokenOffsetY": 0,
+      "tokenFlip": false,
+      "qrImage": null,
+      "qrCode": null,
+      "sprites": {
+        "idle": {
+          "src": "assets/content/sheets/c_mse9b57j_plkdq3_idle.png",
+          "cols": 2,
+          "rows": 2,
+          "bg": "none",
+          "scale": 1,
+          "offsetY": 0,
+          "flip": false
+        },
+        "attack": {
+          "src": "assets/content/sheets/c_mse9b57j_plkdq3_attack.png",
+          "cols": 4,
+          "rows": 2,
+          "bg": "none",
+          "scale": 1,
+          "offsetY": 0,
+          "flip": false
+        },
+        "hit": {
+          "src": "assets/content/sheets/c_mse9b57j_plkdq3_hit.png",
+          "cols": 3,
+          "rows": 2,
+          "bg": "none",
+          "scale": 1,
+          "offsetY": 0,
+          "flip": false
+        },
+        "special": {
+          "src": "assets/content/sheets/c_mse9b57j_plkdq3_special.png",
+          "cols": 4,
+          "rows": 2,
+          "bg": "none",
+          "scale": 1,
+          "offsetY": 0,
+          "flip": false
+        }
+      },
+      "ability": {
+        "target": "self",
+        "mod": {
+          "atk": 40,
+          "def": 40,
+          "hp": 0,
+          "move": 0
+        },
+        "duration": 2,
+        "name": "화염 포효",
+        "cooldown": 3
+      }
+    },
+    {
+      "id": "c_mse9c046_jvvjdj",
+      "name": "파이어 임프",
+      "grade": "초급",
+      "atk": 50,
+      "def": 35,
+      "hp": 55,
+      "move": null,
+      "image": "assets/content/images/c_mse9c046_jvvjdj.jpg",
+      "introVideo": null,
+      "token": "assets/content/sprites/c_mse9c046_jvvjdj.png",
+      "tokenScale": 1.16,
+      "tokenOffsetY": -0.1,
+      "tokenFlip": false,
+      "qrImage": null,
+      "qrCode": null,
+      "sprites": {
+        "attack": {
+          "src": "assets/content/sheets/c_mse9c046_jvvjdj_attack.png",
+          "cols": 3,
+          "rows": 2,
+          "bg": "none",
+          "scale": 1,
+          "offsetY": 0,
+          "flip": true
+        }
+      },
+      "ability": {
+        "target": "enemyAll",
+        "mod": {
+          "atk": 0,
+          "def": 0,
+          "hp": -15,
+          "move": 0
+        },
+        "duration": "perm",
+        "name": "블 장난",
+        "cooldown": 3
+      }
+    },
+    {
+      "id": "c_mse9dxfi_kcgrhu",
+      "name": "포레스트 트레드",
+      "grade": "고급",
+      "atk": 75,
+      "def": 80,
+      "hp": 115,
+      "move": null,
+      "image": "assets/content/images/c_mse9dxfi_kcgrhu.jpg",
+      "introVideo": "assets/content/intros/c_mse9dxfi_kcgrhu.mp4",
+      "token": "assets/content/sprites/c_mse9dxfi_kcgrhu.png",
+      "tokenScale": 1.53,
+      "tokenOffsetY": -0.16,
+      "tokenFlip": false,
+      "qrImage": null,
+      "qrCode": null,
+      "sprites": {
+        "attack": {
+          "src": "assets/content/sheets/c_mse9dxfi_kcgrhu_attack.png",
+          "cols": 4,
+          "rows": 2,
+          "bg": "none",
+          "scale": 1,
+          "offsetY": 0,
+          "flip": false
+        }
+      },
+      "ability": {
+        "target": "self",
+        "mod": {
+          "atk": 0,
+          "def": 0,
+          "hp": 80,
+          "move": 0
+        },
+        "duration": "perm",
+        "name": "치유의 나무",
+        "cooldown": 3
+      }
+    },
+    {
+      "id": "c_mse9et8q_39rll2",
+      "name": "포이즌 슬라임",
+      "grade": "초급",
+      "atk": 35,
+      "def": 30,
+      "hp": 50,
+      "move": null,
+      "image": "assets/content/images/c_mse9et8q_39rll2.jpg",
+      "introVideo": null,
+      "token": "assets/content/sprites/c_mse9et8q_39rll2.png",
+      "tokenScale": 1.08,
+      "tokenOffsetY": -0.06,
+      "tokenFlip": false,
+      "qrImage": null,
+      "qrCode": null,
+      "sprites": {
+        "attack": {
+          "src": "assets/content/sheets/c_mse9et8q_39rll2_attack.png",
+          "cols": 3,
+          "rows": 2,
+          "bg": "none",
+          "scale": 0.86,
+          "offsetY": 0,
+          "flip": false
+        }
+      },
+      "ability": {
+        "target": "enemy1",
+        "mod": {
+          "atk": 0,
+          "def": -20,
+          "hp": -30,
+          "move": 0
+        },
+        "duration": "perm",
+        "name": "독 젤리",
+        "cooldown": 2
+      }
+    },
+    {
+      "id": "c_mse9g2ie_ovb39z",
+      "name": "프로스트 와이번",
+      "grade": "중급",
+      "atk": 80,
+      "def": 70,
+      "hp": 110,
+      "move": null,
+      "image": "assets/content/images/c_mse9g2ie_ovb39z.jpg",
+      "introVideo": null,
+      "token": "assets/content/sprites/c_mse9g2ie_ovb39z.png",
+      "tokenScale": 1.41,
+      "tokenOffsetY": -0.15,
+      "tokenFlip": false,
+      "qrImage": null,
+      "qrCode": null,
+      "sprites": {
+        "attack": {
+          "src": "assets/content/sheets/c_mse9g2ie_ovb39z_attack.png",
+          "cols": 3,
+          "rows": 2,
+          "bg": "none",
+          "scale": 1.2,
+          "offsetY": -0.03,
+          "flip": false
+        }
+      },
+      "ability": {
+        "target": "enemy1",
+        "mod": {
+          "atk": -30,
+          "def": -40,
+          "hp": 0,
+          "move": 0
+        },
+        "duration": 3,
+        "name": "냉기의 브레스",
+        "cooldown": 3
+      }
+    },
+    {
+      "id": "c_mse9gxvm_ia01s6",
+      "name": "플레임 바실리스크",
+      "grade": "중급",
+      "atk": 80,
+      "def": 65,
+      "hp": 110,
+      "move": null,
+      "image": "assets/content/images/c_mse9gxvm_ia01s6.jpg",
+      "introVideo": "assets/content/intros/c_mse9gxvm_ia01s6.mp4",
+      "token": "assets/content/sprites/c_mse9gxvm_ia01s6.png",
+      "tokenScale": 1.4,
+      "tokenOffsetY": -0.16,
+      "tokenFlip": false,
+      "qrImage": null,
+      "qrCode": null,
+      "sprites": {
+        "attack": {
+          "src": "assets/content/sheets/c_mse9gxvm_ia01s6_attack.png",
+          "cols": 3,
+          "rows": 2,
+          "bg": "none",
+          "scale": 1.43,
+          "offsetY": 0,
+          "flip": false
+        }
+      },
+      "ability": {
+        "target": "enemy1",
+        "mod": {
+          "atk": 0,
+          "def": 0,
+          "hp": -50,
+          "move": 0
+        },
+        "duration": "perm",
+        "name": "화염구",
+        "cooldown": 4
+      }
+    },
+    {
+      "id": "c_msgw199s_pq60iu",
+      "name": "나이트메어 스테더",
+      "grade": "중급",
+      "atk": 50,
+      "def": 35,
+      "hp": 55,
+      "move": null,
+      "image": "assets/content/images/c_msgw199s_pq60iu.jpg",
+      "introVideo": null,
+      "token": "assets/content/sprites/c_msgw199s_pq60iu.png",
+      "tokenScale": 1.4,
+      "tokenOffsetY": -0.14,
+      "tokenFlip": false,
+      "qrImage": null,
+      "qrCode": null,
+      "sprites": {
+        "attack": {
+          "src": "assets/content/sheets/c_msgw199s_pq60iu_attack.png",
+          "cols": 4,
+          "rows": 2,
+          "bg": "none",
+          "scale": 1.23,
+          "offsetY": 0,
+          "flip": false
+        }
+      },
+      "ability": {
+        "target": "enemy1",
+        "mod": {
+          "atk": 0,
+          "def": 0,
+          "hp": -50,
+          "move": 0
+        },
+        "duration": "perm",
+        "name": "뒷발차기",
+        "cooldown": 4
+      }
+    },
+    {
+      "id": "c_msgw2chu_5ka84z",
+      "name": "마그마 불칸",
+      "grade": "중급",
+      "atk": 50,
+      "def": 35,
+      "hp": 65,
+      "move": null,
+      "image": "assets/content/images/c_msgw2chu_5ka84z.jpg",
+      "introVideo": "assets/content/intros/c_msgw2chu_5ka84z.mp4",
+      "token": "assets/content/sprites/c_msgw2chu_5ka84z.png",
+      "tokenScale": 1.44,
+      "tokenOffsetY": -0.15,
+      "tokenFlip": false,
+      "qrImage": null,
+      "qrCode": null,
+      "sprites": {
+        "attack": {
+          "src": "assets/content/sheets/c_msgw2chu_5ka84z_attack.png",
+          "cols": 3,
+          "rows": 2,
+          "bg": "none",
+          "scale": 1.21,
+          "offsetY": 0,
+          "flip": false
+        }
+      },
+      "ability": {
+        "target": "self",
+        "mod": {
+          "atk": 40,
+          "def": 40,
+          "hp": 0,
+          "move": 0
+        },
+        "duration": 3,
+        "name": "화염강화",
+        "cooldown": 4
+      }
+    },
+    {
+      "id": "c_msgw3f7e_worlf6",
+      "name": "섀도우 스콜피온",
+      "grade": "중급",
+      "atk": 50,
+      "def": 30,
+      "hp": 55,
+      "move": null,
+      "image": "assets/content/images/c_msgw3f7e_worlf6.jpg",
+      "introVideo": null,
+      "token": "assets/content/sprites/c_msgw3f7e_worlf6.png",
+      "tokenScale": 1.23,
+      "tokenOffsetY": -0.17,
+      "tokenFlip": false,
+      "qrImage": null,
+      "qrCode": null,
+      "sprites": {
+        "attack": {
+          "src": "assets/content/sheets/c_msgw3f7e_worlf6_attack.png",
+          "cols": 3,
+          "rows": 2,
+          "bg": "none",
+          "scale": 1.42,
+          "offsetY": -0.04,
+          "flip": false
+        }
+      },
+      "ability": {
+        "target": "enemy1",
+        "mod": {
+          "atk": 0,
+          "def": -20,
+          "hp": -40,
+          "move": 0
+        },
+        "duration": "perm",
+        "name": "신경독",
+        "cooldown": 3
+      }
+    },
+    {
+      "id": "c_msgw4g8i_n0bcli",
+      "name": "섀도우 슬라임",
+      "grade": "중급",
+      "atk": 40,
+      "def": 40,
+      "hp": 55,
+      "move": null,
+      "image": "assets/content/images/c_msgw4g8i_n0bcli.jpg",
+      "introVideo": null,
+      "token": "assets/content/sprites/c_msgw4g8i_n0bcli.png",
+      "tokenScale": 1.21,
+      "tokenOffsetY": -0.1,
+      "tokenFlip": false,
+      "qrImage": null,
+      "qrCode": null,
+      "sprites": {
+        "attack": {
+          "src": "assets/content/sheets/c_msgw4g8i_n0bcli_attack.png",
+          "cols": 3,
+          "rows": 2,
+          "bg": "none",
+          "scale": 1.33,
+          "offsetY": 0,
+          "flip": false
+        }
+      },
+      "ability": {
+        "target": "enemyAll",
+        "mod": {
+          "atk": 0,
+          "def": 0,
+          "hp": -20,
+          "move": 0
+        },
+        "duration": "perm",
+        "name": "독성물질",
+        "cooldown": 2
+      }
+    },
+    {
+      "id": "c_msgw5m42_fsn0ws",
+      "name": "섀도우 페럴",
+      "grade": "중급",
+      "atk": 65,
+      "def": 25,
+      "hp": 55,
+      "move": null,
+      "image": "assets/content/images/c_msgw5m42_fsn0ws.jpg",
+      "introVideo": "assets/content/intros/c_msgw5m42_fsn0ws.mp4",
+      "token": "assets/content/sprites/c_msgw5m42_fsn0ws.png",
+      "tokenScale": 1.17,
+      "tokenOffsetY": -0.11,
+      "tokenFlip": false,
+      "qrImage": null,
+      "qrCode": null,
+      "sprites": {
+        "attack": {
+          "src": "assets/content/sheets/c_msgw5m42_fsn0ws_attack.png",
+          "cols": 3,
+          "rows": 2,
+          "bg": "none",
+          "scale": 1.08,
+          "offsetY": 0,
+          "flip": false
+        }
+      },
+      "ability": {
+        "target": "enemy1",
+        "mod": {
+          "atk": 0,
+          "def": 0,
+          "hp": -50,
+          "move": 0
+        },
+        "duration": "perm",
+        "name": "기습",
+        "cooldown": 3
+      }
+    },
+    {
+      "id": "c_msgw70mi_f4xwzd",
+      "name": "스톰 피닉스",
+      "grade": "레어",
+      "atk": 95,
+      "def": 85,
+      "hp": 135,
+      "move": null,
+      "image": "assets/content/images/c_msgw70mi_f4xwzd.jpg",
+      "introVideo": "assets/content/intros/c_msgw70mi_f4xwzd.mp4",
+      "token": "assets/content/sprites/c_msgw70mi_f4xwzd.png",
+      "tokenScale": 1.46,
+      "tokenOffsetY": -0.12,
+      "tokenFlip": false,
+      "qrImage": null,
+      "qrCode": null,
+      "sprites": {
+        "attack": {
+          "src": "assets/content/sheets/c_msgw70mi_f4xwzd_attack.png",
+          "cols": 3,
+          "rows": 2,
+          "bg": "none",
+          "scale": 1.59,
+          "offsetY": 0,
+          "flip": false
+        }
+      },
+      "ability": {
+        "target": "self",
+        "mod": {
+          "atk": 40,
+          "def": 50,
+          "hp": 0,
+          "move": 3
+        },
+        "duration": 3,
+        "name": "비행",
+        "cooldown": 4
+      }
+    },
+    {
+      "id": "c_msgw9ht2_kdvno4",
+      "name": "아이스 골렘",
+      "grade": "중급",
+      "atk": 40,
+      "def": 55,
+      "hp": 70,
+      "move": null,
+      "image": "assets/content/images/c_msgw9ht2_kdvno4.jpg",
+      "introVideo": "assets/content/intros/c_msgw9ht2_kdvno4.mp4",
+      "token": "assets/content/sprites/c_msgw9ht2_kdvno4.png",
+      "tokenScale": 1.42,
+      "tokenOffsetY": -0.13,
+      "tokenFlip": false,
+      "qrImage": null,
+      "qrCode": null,
+      "sprites": {
+        "attack": {
+          "src": "assets/content/sheets/c_msgw9ht2_kdvno4_attack.png",
+          "cols": 3,
+          "rows": 2,
+          "bg": "none",
+          "scale": 1.32,
+          "offsetY": -0.03,
+          "flip": false
+        }
+      },
+      "ability": {
+        "target": "self",
+        "mod": {
+          "atk": 40,
+          "def": 30,
+          "hp": 0,
+          "move": 0
+        },
+        "duration": 3,
+        "name": "빙결 강화",
+        "cooldown": 4
+      }
+    },
+    {
+      "id": "c_msgwbbpo_0qs4v4",
+      "name": "아쿠아 셀",
+      "grade": "중급",
+      "atk": 35,
+      "def": 55,
+      "hp": 75,
+      "move": null,
+      "image": "assets/content/images/c_msgwbbpo_0qs4v4.jpg",
+      "introVideo": null,
+      "token": "assets/content/sprites/c_msgwbbpo_0qs4v4.png",
+      "tokenScale": 1.17,
+      "tokenOffsetY": -0.15,
+      "tokenFlip": false,
+      "qrImage": null,
+      "qrCode": null,
+      "sprites": {
+        "attack": {
+          "src": "assets/content/sheets/c_msgwbbpo_0qs4v4_attack.png",
+          "cols": 3,
+          "rows": 2,
+          "bg": "none",
+          "scale": 1.06,
+          "offsetY": 0,
+          "flip": false
+        }
+      },
+      "ability": {
+        "target": "self",
+        "mod": {
+          "atk": 0,
+          "def": 100,
+          "hp": 0,
+          "move": 0
+        },
+        "duration": 3,
+        "name": "방어 강화",
+        "cooldown": 4
+      }
+    },
+    {
+      "id": "c_msgwcj04_roqfo9",
+      "name": "아쿠아 크랩",
+      "grade": "중급",
+      "atk": 45,
+      "def": 55,
+      "hp": 70,
+      "move": null,
+      "image": "assets/content/images/c_msgwcj04_roqfo9.jpg",
+      "introVideo": null,
+      "token": "assets/content/sprites/c_msgwcj04_roqfo9.png",
+      "tokenScale": 1.01,
+      "tokenOffsetY": -0.16,
+      "tokenFlip": false,
+      "qrImage": null,
+      "qrCode": null,
+      "sprites": {
+        "attack": {
+          "src": "assets/content/sheets/c_msgwcj04_roqfo9_attack.png",
+          "cols": 3,
+          "rows": 2,
+          "bg": "none",
+          "scale": 1.2,
+          "offsetY": 0,
+          "flip": false
+        }
+      },
+      "ability": {
+        "target": "self",
+        "mod": {
+          "atk": 50,
+          "def": 0,
+          "hp": 0,
+          "move": 0
+        },
+        "duration": 3,
+        "name": "강력한 집개발",
+        "cooldown": 4
+      }
+    },
+    {
+      "id": "c_msgwdwq5_nqimg2",
+      "name": "윈드 이글",
+      "grade": "중급",
+      "atk": 65,
+      "def": 45,
+      "hp": 85,
+      "move": null,
+      "image": "assets/content/images/c_msgwdwq5_nqimg2.jpg",
+      "introVideo": null,
+      "token": "assets/content/sprites/c_msgwdwq5_nqimg2.png",
+      "tokenScale": 1.35,
+      "tokenOffsetY": -0.09,
+      "tokenFlip": false,
+      "qrImage": null,
+      "qrCode": null,
+      "sprites": {
+        "attack": {
+          "src": "assets/content/sheets/c_msgwdwq5_nqimg2_attack.png",
+          "cols": 4,
+          "rows": 2,
+          "bg": "none",
+          "scale": 1.08,
+          "offsetY": 0,
+          "flip": false
+        }
+      },
+      "ability": {
+        "target": "self",
+        "mod": {
+          "atk": 30,
+          "def": 0,
+          "hp": 0,
+          "move": 3
+        },
+        "duration": 3,
+        "name": "비행",
+        "cooldown": 4
+      }
+    },
+    {
+      "id": "c_msgwetn0_zjpjac",
+      "name": "이블 파이어 드래곤",
+      "grade": "레어",
+      "atk": 100,
+      "def": 90,
+      "hp": 140,
+      "move": null,
+      "image": "assets/content/images/c_msgwetn0_zjpjac.jpg",
+      "introVideo": "assets/content/intros/c_msgwetn0_zjpjac.mp4",
+      "token": "assets/content/sprites/c_msgwetn0_zjpjac.png",
+      "tokenScale": 1.41,
+      "tokenOffsetY": -0.14,
+      "tokenFlip": true,
+      "qrImage": null,
+      "qrCode": null,
+      "sprites": {
+        "idle": {
+          "src": "assets/content/sheets/c_msgwetn0_zjpjac_idle.png",
+          "cols": 2,
+          "rows": 2,
+          "bg": "none",
+          "scale": 1.05,
+          "offsetY": 0.01,
+          "flip": false
+        },
+        "attack": {
+          "src": "assets/content/sheets/c_msgwetn0_zjpjac_attack.png",
+          "cols": 3,
+          "rows": 2,
+          "bg": "none",
+          "scale": 1.57,
+          "offsetY": 0,
+          "flip": true
+        },
+        "hit": {
+          "src": "assets/content/sheets/c_msgwetn0_zjpjac_hit.png",
+          "cols": 2,
+          "rows": 2,
+          "bg": "none",
+          "scale": 1.05,
+          "offsetY": 0,
+          "flip": false
+        }
+      },
+      "ability": {
+        "target": "enemyAll",
+        "mod": {
+          "atk": 0,
+          "def": 0,
+          "hp": -60,
+          "move": 0
+        },
+        "duration": "perm",
+        "name": "리틀 메테오",
+        "cooldown": 5
+      }
+    },
+    {
+      "id": "c_msgwh03w_hujlqh",
+      "name": "화염 도마뱀",
+      "grade": "중급",
+      "atk": 55,
+      "def": 30,
+      "hp": 65,
+      "move": null,
+      "image": "assets/content/images/c_msgwh03w_hujlqh.jpg",
+      "introVideo": null,
+      "token": "assets/content/sprites/c_msgwh03w_hujlqh.png",
+      "tokenScale": 1.09,
+      "tokenOffsetY": -0.07,
+      "tokenFlip": true,
+      "qrImage": null,
+      "qrCode": null,
+      "sprites": {
+        "attack": {
+          "src": "assets/content/sheets/c_msgwh03w_hujlqh_attack.png",
+          "cols": 3,
+          "rows": 2,
+          "bg": "none",
+          "scale": 1.47,
+          "offsetY": -0.01,
+          "flip": true
+        }
+      },
+      "ability": {
+        "target": "enemy1",
+        "mod": {
+          "atk": 0,
+          "def": 0,
+          "hp": -40,
+          "move": 0
+        },
+        "duration": "perm",
+        "name": "도마뱀 화염구",
+        "cooldown": 2
+      }
+    },
+    {
+      "id": "d_mupgb9dq874x",
+      "name": "드래곤 라이더 강태웅",
+      "grade": "레전더스 레어",
+      "atk": 180,
+      "def": 180,
+      "hp": 180,
+      "move": 3,
+      "image": "assets/content/images/d_mupgb9dq874x.png",
+      "introVideo": "assets/content/intros/d_mupgb9dq874x.mp4",
+      "token": "assets/content/sprites/d_mupgb9dq874x.png",
+      "tokenScale": 0.69,
+      "tokenOffsetY": 0.08,
+      "tokenFlip": true,
+      "qrImage": "assets/content/qr/dragon_d_mupgb9dq874x.png",
+      "qrCode": "드래곤 라이더",
+      "sprites": {
+        "idle": {
+          "src": "assets/content/sheets/d_mupgb9dq874x_idle.png",
+          "cols": 3,
+          "rows": 2,
+          "bg": "none",
+          "scale": 1,
+          "offsetY": -0.05,
+          "flip": true
+        },
+        "attack": {
+          "src": "assets/content/sheets/d_mupgb9dq874x_attack.png",
+          "cols": 3,
+          "rows": 2,
+          "bg": "none",
+          "scale": 1.14,
+          "offsetY": -0.04,
+          "flip": true
+        },
+        "hit": {
+          "src": "assets/content/sheets/d_mupgb9dq874x_hit.png",
+          "cols": 3,
+          "rows": 2,
+          "bg": "none",
+          "scale": 1,
+          "offsetY": -0.03,
+          "flip": true
+        },
+        "special": {
+          "src": "assets/content/sheets/d_mupgb9dq874x_special.png",
+          "cols": 3,
+          "rows": 2,
+          "bg": "none",
+          "scale": 1.08,
+          "offsetY": -0.03,
+          "flip": true
+        }
+      },
+      "ability": {
+        "target": "enemyAll",
+        "mod": {
+          "atk": -50,
+          "def": -50,
+          "hp": 0,
+          "move": -1
+        },
+        "duration": 2,
+        "name": "잔소리",
+        "cooldown": 4
+      }
+    },
+    {
+      "id": "d_mutpyctneeev",
+      "name": "그림자 드래곤",
+      "grade": "고급",
+      "atk": 80,
+      "def": 120,
+      "hp": 135,
+      "move": null,
+      "image": "assets/content/images/d_mutpyctneeev.png",
+      "introVideo": "assets/content/intros/d_mutpyctneeev.mp4",
+      "token": "assets/content/sprites/d_mutpyctneeev.png",
+      "tokenScale": 1.31,
+      "tokenOffsetY": -0.16,
+      "tokenFlip": true,
+      "qrImage": "assets/content/qr/dragon_d_mutpyctneeev.png",
+      "qrCode": "그림자 드래곤",
+      "sprites": {
+        "attack": {
+          "src": "assets/content/sheets/d_mutpyctneeev_attack.png",
+          "cols": 3,
+          "rows": 2,
+          "bg": "none",
+          "scale": 1.46,
+          "offsetY": 0,
+          "flip": true
+        }
+      },
+      "ability": {
+        "target": "enemyAll",
+        "mod": {
+          "atk": 0,
+          "def": -50,
+          "hp": 0,
+          "move": -1
+        },
+        "duration": 1,
+        "name": "암흑",
+        "cooldown": 4
+      }
+    },
+    {
+      "id": "d_mutqkgvv7npu",
+      "name": "티타늄 드래곤",
+      "grade": "레어",
+      "atk": 110,
+      "def": 150,
+      "hp": 140,
+      "move": null,
+      "image": "assets/content/images/d_mutqkgvv7npu.png",
+      "introVideo": "assets/content/intros/d_mutqkgvv7npu.mp4",
+      "token": "assets/content/sprites/d_mutqkgvv7npu.png",
+      "tokenScale": 1.42,
+      "tokenOffsetY": -0.19,
+      "tokenFlip": false,
+      "qrImage": "assets/content/qr/dragon_d_mutqkgvv7npu.png",
+      "qrCode": "티타늄 드래곤",
+      "sprites": {
+        "idle": {
+          "src": "assets/content/sheets/d_mutqkgvv7npu_idle.png",
+          "cols": 2,
+          "rows": 2,
+          "bg": "none",
+          "scale": 1.22,
+          "offsetY": -0.08,
+          "flip": false
+        },
+        "attack": {
+          "src": "assets/content/sheets/d_mutqkgvv7npu_attack.png",
+          "cols": 3,
+          "rows": 2,
+          "bg": "none",
+          "scale": 1.51,
+          "offsetY": -0.05,
+          "flip": false
+        },
+        "hit": {
+          "src": "assets/content/sheets/d_mutqkgvv7npu_hit.png",
+          "cols": 2,
+          "rows": 2,
+          "bg": "none",
+          "scale": 1.16,
+          "offsetY": 0,
+          "flip": false
+        }
+      },
+      "ability": {
+        "target": "allyAll",
+        "mod": {
+          "atk": 30,
+          "def": 60,
+          "hp": 0,
+          "move": 0
+        },
+        "duration": 3,
+        "name": "특수능력",
+        "cooldown": 4
+      }
+    },
+    {
+      "id": "d_mutqwvdcs7mi",
+      "name": "팬덤 드래곤",
+      "grade": "중급",
+      "atk": 60,
+      "def": 65,
+      "hp": 105,
+      "move": null,
+      "image": "assets/content/images/d_mutqwvdcs7mi.png",
+      "introVideo": "assets/content/intros/d_mutqwvdcs7mi.mp4",
+      "token": "assets/content/sprites/d_mutqwvdcs7mi.png",
+      "tokenScale": 1.36,
+      "tokenOffsetY": -0.22,
+      "tokenFlip": false,
+      "qrImage": "assets/content/qr/dragon_d_mutqwvdcs7mi.png",
+      "qrCode": "팬덤 드래곤",
+      "sprites": {
+        "idle": {
+          "src": "assets/content/sheets/d_mutqwvdcs7mi_idle.png",
+          "cols": 2,
+          "rows": 2,
+          "bg": "none",
+          "scale": 1.18,
+          "offsetY": -0.05,
+          "flip": false
+        },
+        "attack": {
+          "src": "assets/content/sheets/d_mutqwvdcs7mi_attack.png",
+          "cols": 3,
+          "rows": 2,
+          "bg": "none",
+          "scale": 1.26,
+          "offsetY": 0,
+          "flip": false
+        },
+        "special": {
+          "src": "assets/content/sheets/d_mutqwvdcs7mi_special.png",
+          "cols": 2,
+          "rows": 2,
+          "bg": "none",
+          "scale": 1.18,
+          "offsetY": -0.04,
+          "flip": false
+        }
+      },
+      "ability": {
+        "target": "enemyAll",
+        "mod": {
+          "atk": 0,
+          "def": 0,
+          "hp": -30,
+          "move": 0
+        },
+        "duration": "perm",
+        "name": "약령",
+        "cooldown": 4
+      }
+    },
+    {
+      "id": "d_mutr5z80zn3b",
+      "name": "루비 드래곤",
+      "grade": "중급",
+      "atk": 90,
+      "def": 75,
+      "hp": 75,
+      "move": null,
+      "image": "assets/content/images/d_mutr5z80zn3b.png",
+      "introVideo": "assets/content/intros/d_mutr5z80zn3b.mp4",
+      "token": "assets/content/sprites/d_mutr5z80zn3b.png",
+      "tokenScale": 1.31,
+      "tokenOffsetY": -0.12,
+      "tokenFlip": false,
+      "qrImage": "assets/content/qr/dragon_d_mutr5z80zn3b.png",
+      "qrCode": "루비 드래곤",
+      "sprites": {
+        "attack": {
+          "src": "assets/content/sheets/d_mutr5z80zn3b_attack.png",
+          "cols": 3,
+          "rows": 2,
+          "bg": "none",
+          "scale": 1.12,
+          "offsetY": 0,
+          "flip": false
+        }
+      },
+      "ability": {
+        "target": "self",
+        "mod": {
+          "atk": 30,
+          "def": 50,
+          "hp": 0,
+          "move": 0
+        },
+        "duration": 3,
+        "name": "임페리어 쉴드",
+        "cooldown": 4
+      }
+    },
+    {
+      "id": "d_mutrefs47amo",
+      "name": "투헤드 드래곤",
+      "grade": "레어",
+      "atk": 140,
+      "def": 130,
+      "hp": 180,
+      "move": null,
+      "image": "assets/content/images/d_mutrefs47amo.png",
+      "introVideo": "assets/content/intros/d_mutrefs47amo.mp4",
+      "token": "assets/content/sprites/d_mutrefs47amo.png",
+      "tokenScale": 1.51,
+      "tokenOffsetY": -0.19,
+      "tokenFlip": false,
+      "qrImage": "assets/content/qr/dragon_d_mutrefs47amo.png",
+      "qrCode": "투헤드 드래곤",
+      "sprites": {
+        "attack": {
+          "src": "assets/content/sheets/d_mutrefs47amo_attack.png",
+          "cols": 4,
+          "rows": 2,
+          "bg": "none",
+          "scale": 1.31,
+          "offsetY": -0.04,
+          "flip": false
+        }
+      },
+      "ability": {
+        "target": "enemy1",
+        "mod": {
+          "atk": 0,
+          "def": 0,
+          "hp": -100,
+          "move": 0
+        },
+        "duration": "perm",
+        "name": "화염, 빙결 크로스 브레스",
+        "cooldown": 4
+      }
+    },
+    {
+      "id": "d_mutrwf81okv1",
+      "name": "황금룡",
+      "grade": "레전더스 레어",
+      "atk": 160,
+      "def": 150,
+      "hp": 210,
+      "move": null,
+      "image": "assets/content/images/d_mutrwf81okv1.png",
+      "introVideo": "assets/content/intros/d_mutrwf81okv1.mp4",
+      "token": "assets/content/sprites/d_mutrwf81okv1.png",
+      "tokenScale": 1.46,
+      "tokenOffsetY": -0.18,
+      "tokenFlip": true,
+      "qrImage": "assets/content/qr/dragon_d_mutrwf81okv1.png",
+      "qrCode": "황금룡",
+      "sprites": {
+        "idle": {
+          "src": "assets/content/sheets/d_mutrwf81okv1_idle.png",
+          "cols": 2,
+          "rows": 2,
+          "bg": "none",
+          "scale": 1.13,
+          "offsetY": -0.04,
+          "flip": true
+        },
+        "attack": {
+          "src": "assets/content/sheets/d_mutrwf81okv1_attack.png",
+          "cols": 4,
+          "rows": 2,
+          "bg": "none",
+          "scale": 1.31,
+          "offsetY": -0.06,
+          "flip": true
+        },
+        "hit": {
+          "src": "assets/content/sheets/d_mutrwf81okv1_hit.png",
+          "cols": 2,
+          "rows": 2,
+          "bg": "none",
+          "scale": 1.22,
+          "offsetY": -0.05,
+          "flip": true
+        },
+        "special": {
+          "src": "assets/content/sheets/d_mutrwf81okv1_special.png",
+          "cols": 2,
+          "rows": 2,
+          "bg": "none",
+          "scale": 1.2,
+          "offsetY": -0.04,
+          "flip": true
+        }
+      },
+      "ability": {
+        "target": "self",
+        "mod": {
+          "atk": 60,
+          "def": 60,
+          "hp": 0,
+          "move": 0
+        },
+        "duration": 2,
+        "name": "황금 갑옷",
+        "cooldown": 4
+      }
+    }
+  ],
+  "magics": [
+    {
+      "id": "m_fireball",
+      "name": "파이어볼",
+      "grade": "중급",
+      "image": "assets/content/magic/m_fireball.png",
+      "introVideo": "assets/content/intros/m_fireball.mp4",
+      "qrImage": "assets/content/qr/m_fireball.png",
+      "qrCode": "파이어 볼",
+      "effect": {
+        "target": "enemy1",
+        "mod": {
+          "atk": 0,
+          "def": 0,
+          "hp": -80,
+          "move": 0
+        },
+        "duration": "perm"
+      }
+    },
+    {
+      "id": "m_mul5dlyq2k1h",
+      "name": "태풍",
+      "grade": "고급",
+      "image": "assets/content/magic/m_mul5dlyq2k1h.png",
+      "introVideo": "assets/content/intros/m_mul5dlyq2k1h.mp4",
+      "qrImage": "assets/content/qr/m_mul5dlyq2k1h.png",
+      "qrCode": "태풍",
+      "effect": {
+        "target": "enemyAll",
+        "mod": {
+          "atk": 0,
+          "def": 0,
+          "hp": -40,
+          "move": 0
+        },
+        "duration": "perm"
+      }
+    },
+    {
+      "id": "m_mul5f2ym7gml",
+      "name": "그레이트 월",
+      "grade": "고급",
+      "image": "assets/content/magic/m_mul5f2ym7gml.png",
+      "introVideo": "assets/content/intros/m_mul5f2ym7gml.mp4",
+      "qrImage": "assets/content/qr/m_mul5f2ym7gml.png",
+      "qrCode": "그레이트 월",
+      "effect": {
+        "target": "allyAll",
+        "mod": {
+          "atk": 0,
+          "def": 40,
+          "hp": 0,
+          "move": 0
+        },
+        "duration": 3
+      }
+    },
+    {
+      "id": "m_mul5jg3aulsm",
+      "name": "그레이트 힐링",
+      "grade": "고급",
+      "image": "assets/content/magic/m_mul5jg3aulsm.png",
+      "introVideo": "assets/content/intros/m_mul5jg3aulsm.mp4",
+      "qrImage": "assets/content/qr/m_mul5jg3aulsm.png",
+      "qrCode": "그레이트 힐링",
+      "effect": {
+        "target": "allyAll",
+        "mod": {
+          "atk": 0,
+          "def": 0,
+          "hp": 50,
+          "move": 0
+        },
+        "duration": "perm"
+      }
+    },
+    {
+      "id": "m_mul5lqbagjip",
+      "name": "천사의 축복",
+      "grade": "중급",
+      "image": "assets/content/magic/m_mul5lqbagjip.png",
+      "introVideo": "assets/content/intros/m_mul5lqbagjip.mp4",
+      "qrImage": "assets/content/qr/m_mul5lqbagjip.png",
+      "qrCode": "천사의 축복",
+      "effect": {
+        "target": "ally1",
+        "mod": {
+          "atk": 0,
+          "def": 0,
+          "hp": 100,
+          "move": 0
+        },
+        "duration": "perm"
+      }
+    },
+    {
+      "id": "m_mul5o05eaosf",
+      "name": "맹독",
+      "grade": "중급",
+      "image": "assets/content/magic/m_mul5o05eaosf.png",
+      "introVideo": "assets/content/intros/m_mul5o05eaosf.mp4",
+      "qrImage": "assets/content/qr/m_mul5o05eaosf.png",
+      "qrCode": "맹독",
+      "effect": {
+        "target": "enemy1",
+        "mod": {
+          "atk": 0,
+          "def": 0,
+          "hp": -80,
+          "move": 0
+        },
+        "duration": "perm"
+      }
+    },
+    {
+      "id": "m_mul5q9oafej9",
+      "name": "대천사의 강림",
+      "grade": "고급",
+      "image": "assets/content/magic/m_mul5q9oafej9.png",
+      "introVideo": "assets/content/intros/m_mul5q9oafej9.mp4",
+      "qrImage": "assets/content/qr/m_mul5q9oafej9.png",
+      "qrCode": "대천사의 강림",
+      "effect": {
+        "target": "allyAll",
+        "mod": {
+          "atk": 0,
+          "def": 0,
+          "hp": 30,
+          "move": 0
+        },
+        "duration": "perm"
+      }
+    },
+    {
+      "id": "m_mul5wwyuvxuc",
+      "name": "아이스 스피어",
+      "grade": "중급",
+      "image": "assets/content/magic/m_mul5wwyuvxuc.png",
+      "introVideo": "assets/content/intros/m_mul5wwyuvxuc.mp4",
+      "qrImage": "assets/content/qr/m_mul5wwyuvxuc.png",
+      "qrCode": "아이스 스피어",
+      "effect": {
+        "target": "enemy1",
+        "mod": {
+          "atk": 0,
+          "def": 0,
+          "hp": -80,
+          "move": 0
+        },
+        "duration": "perm"
+      }
+    },
+    {
+      "id": "m_mul5yfqmulqi",
+      "name": "메테오",
+      "grade": "레어",
+      "image": "assets/content/magic/m_mul5yfqmulqi.png",
+      "introVideo": "assets/content/intros/m_mul5yfqmulqi.mp4",
+      "qrImage": "assets/content/qr/m_mul5yfqmulqi.png",
+      "qrCode": "메테오",
+      "effect": {
+        "target": "enemyAll",
+        "mod": {
+          "atk": 0,
+          "def": 0,
+          "hp": -60,
+          "move": 0
+        },
+        "duration": "perm"
+      }
+    }
+  ]
+}

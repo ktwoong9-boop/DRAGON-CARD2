@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <title>드래곤 카드 배틀 시즌2</title>
+  <link rel="stylesheet" href="css/style.css?v=21" />
+  <link rel="icon" href="data:," />
+  <script src="js/vendor/jsQR.min.js"></script>
+  <script src="js/vendor/qrcode.min.js"></script>
+</head>
+<body>
+  <div id="stage" class="stage">
+
+    <!-- 시작 (자동재생 허용용 터치) -->
+    <section id="screen-gate" class="screen active">
+      <div class="gate">
+        <button id="btn-gate" class="gold-btn big">터치하여 시작</button>
+        <p id="gate-msg" class="muted"></p>
+      </div>
+      <div id="opening" class="overlay open-intro hidden">
+        <video id="opening-video" src="assets/video/opening.mp4" playsinline muted preload="auto"></video>
+        <button id="opening-skip" class="ghost-btn skip" type="button">건너뛰기 ▶</button>
+      </div>
+    </section>
+
+    <!-- 메인 메뉴 -->
+    <section id="screen-menu" class="screen">
+      <div class="menu-bg title-bg" style="background-image:url('assets/ui/menu-bg.jpg')"></div>
+      <div class="menu-bottom">
+        <button id="btn-play" class="img-btn" type="button"><img src="assets/ui/btn-start.png" alt="게임시작" draggable="false"></button>
+        <button id="btn-settings" class="img-btn" type="button"><img src="assets/ui/btn-settings.png" alt="설정" draggable="false"></button>
+      </div>
+      <p id="menu-version" class="muted small menu-ver"></p>
+    </section>
+
+    <!-- 게임 -->
+    <section id="screen-game" class="screen">
+      <div id="g-bg" class="g-bg"></div>
+      <header class="g-top">
+        <div class="g-hud p1">
+          <div class="g-hud-name">1P</div>
+          <div id="g-mana-p1" class="g-mana"></div>
+          <div id="g-meta-p1" class="g-meta"></div>
+        </div>
+        <div class="g-center">
+          <div id="g-turn" class="g-turn">1P 턴</div>
+          <div class="g-center-btns">
+            <button id="g-ai" type="button" class="ghost-btn sm">2P AI</button>
+            <button id="g-end" type="button" class="gold-btn sm">턴 종료</button>
+            <button id="g-menu" type="button" class="ghost-btn sm">메뉴</button>
+          </div>
+        </div>
+        <div class="g-hud p2">
+          <div id="g-name-p2" class="g-hud-name">2P</div>
+          <div id="g-mana-p2" class="g-mana"></div>
+          <div id="g-meta-p2" class="g-meta"></div>
+        </div>
+      </header>
+
+      <aside class="g-side p1">
+        <button id="g-summon-p1" type="button" class="side-btn img summon"><img src="assets/ui/btn-summon.png" alt="소환" draggable="false" /></button>
+        <button id="g-magic-p1" type="button" class="side-btn img magic"><img src="assets/ui/btn-magic.png" alt="마법" draggable="false" /></button>
+        <div id="g-info-p1" class="g-info"></div>
+      </aside>
+      <div id="g-board" class="g-board"></div>
+      <aside class="g-side p2">
+        <button id="g-summon-p2" type="button" class="side-btn img summon"><img src="assets/ui/btn-summon.png" alt="소환" draggable="false" /></button>
+        <button id="g-magic-p2" type="button" class="side-btn img magic"><img src="assets/ui/btn-magic.png" alt="마법" draggable="false" /></button>
+        <div id="g-info-p2" class="g-info"></div>
+      </aside>
+      <p id="g-status" class="g-status"></p>
+
+      <div id="g-banner" class="g-banner hidden"><p id="g-banner-text"></p></div>
+
+      <!-- 카드 인트로 -->
+      <div id="reveal" class="overlay reveal hidden">
+        <video id="reveal-video" class="hidden" playsinline webkit-playsinline></video>
+        <img id="reveal-img" class="hidden" alt="" />
+        <div id="reveal-card" class="gen-card hidden"></div>
+        <p id="reveal-name" class="reveal-name"></p>
+      </div>
+
+      <!-- QR 스캔 -->
+      <div id="scan" class="overlay scan hidden">
+        <div class="scan-box">
+          <h2 id="scan-title">카드 스캔</h2>
+          <div class="scan-body">
+            <div class="scan-cam">
+              <video id="scan-video" playsinline muted autoplay></video>
+              <canvas id="scan-canvas" class="hidden"></canvas>
+              <div class="scan-guide"></div>
+              <div id="scan-cam-status" class="scan-cam-status">카메라 준비 중…</div>
+              <button id="scan-retry" type="button" class="gold-btn sm scan-retry hidden">카메라 다시 시도</button>
+            </div>
+            <div class="scan-side">
+              <div id="scan-result" class="scan-result">카드의 QR코드를 비추세요</div>
+              <input id="scan-search" type="text" placeholder="이름 검색 (비밀번호)" autocomplete="off" />
+              <ul id="scan-list" class="scan-list"></ul>
+              <div class="row">
+                <button id="scan-ok" type="button" class="gold-btn" disabled>확인</button>
+                <button id="scan-cancel" type="button" class="ghost-btn">취소</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 결과 -->
+      <div id="result" class="overlay result hidden">
+        <img id="result-img" alt="" />
+        <div class="result-actions">
+          <button id="btn-retry" type="button" class="gold-btn big">다시하기</button>
+          <button id="btn-home" type="button" class="ghost-btn big">메인화면</button>
+        </div>
+      </div>
+
+      <!-- 시작 인트로 -->
+      <div id="open-intro" class="overlay open-intro hidden">
+        <video id="open-video" src="assets/video/strategy-intro.mp4" playsinline preload="auto"></video>
+        <button id="open-skip" type="button" class="ghost-btn skip">건너뛰기</button>
+      </div>
+    </section>
+
+    <!-- 설정 -->
+    <section id="screen-settings" class="screen">
+      <div class="set-wrap">
+        <nav class="set-nav">
+          <h2>설정</h2>
+          <button class="set-tab active" data-tab="dragons">드래곤 카드</button>
+          <button class="set-tab" data-tab="magics">마법 카드</button>
+          <button class="set-tab" data-tab="general">재생·비용</button>
+          <button class="set-tab" data-tab="deploy">배포</button>
+          <div class="grow"></div>
+          <button id="set-back" class="ghost-btn">메인으로</button>
+        </nav>
+        <div id="set-body" class="set-body"></div>
+      </div>
+    </section>
+
+    <!-- 공용 모달 -->
+    <div id="modal" class="modal hidden">
+      <div class="modal-box">
+        <p id="modal-text"></p>
+        <input id="modal-input" class="hidden" type="password" autocomplete="off" />
+        <div class="row center">
+          <button id="modal-ok" type="button" class="gold-btn">확인</button>
+          <button id="modal-cancel" type="button" class="ghost-btn">취소</button>
+        </div>
+      </div>
+    </div>
+    <div id="toast" class="toast hidden"></div>
+  </div>
+
+  <script src="js/build-config.js?v=21"></script>
+  <script src="js/content-data.js?v=21"></script>
+  <script src="js/db.js?v=21"></script>
+  <script src="js/zip.js?v=21"></script>
+  <script src="js/store.js?v=21"></script>
+  <script src="js/audio.js?v=21"></script>
+  <script src="js/qr.js?v=21"></script>
+  <script src="js/sprite.js?v=21"></script>
+  <script src="js/ui.js?v=21"></script>
+  <script src="js/rules.js?v=21"></script>
+  <script src="js/scan.js?v=21"></script>
+  <script src="js/game.js?v=21"></script>
+  <script src="js/ai.js?v=21"></script>
+  <script src="js/settings.js?v=21"></script>
+  <script src="js/app.js?v=21"></script>
+</body>
+</html>
