@@ -6,10 +6,13 @@
   <meta name="mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <title>드래곤 카드 배틀 시즌2</title>
-  <link rel="stylesheet" href="css/style.css?v=21" />
-  <link rel="icon" href="data:," />
+  <link rel="stylesheet" href="css/style.css?v=22" />
+  <link rel="icon" href="assets/icons/icon-192.png" />
   <script src="js/vendor/jsQR.min.js"></script>
   <script src="js/vendor/qrcode.min.js"></script>
+  <link rel="manifest" href="manifest.webmanifest" />
+  <meta name="theme-color" content="#000000" />
+  <link rel="apple-touch-icon" href="assets/icons/icon-192.png" />
 </head>
 <body>
   <div id="stage" class="stage">
@@ -154,20 +157,23 @@
     <div id="toast" class="toast hidden"></div>
   </div>
 
-  <script src="js/build-config.js?v=21"></script>
-  <script src="js/content-data.js?v=21"></script>
-  <script src="js/db.js?v=21"></script>
-  <script src="js/zip.js?v=21"></script>
-  <script src="js/store.js?v=21"></script>
-  <script src="js/audio.js?v=21"></script>
-  <script src="js/qr.js?v=21"></script>
-  <script src="js/sprite.js?v=21"></script>
-  <script src="js/ui.js?v=21"></script>
-  <script src="js/rules.js?v=21"></script>
-  <script src="js/scan.js?v=21"></script>
-  <script src="js/game.js?v=21"></script>
-  <script src="js/ai.js?v=21"></script>
-  <script src="js/settings.js?v=21"></script>
-  <script src="js/app.js?v=21"></script>
+  <script src="js/build-config.js?v=22"></script>
+  <script src="js/content-data.js?v=22"></script>
+  <script src="js/db.js?v=22"></script>
+  <script src="js/zip.js?v=22"></script>
+  <script src="js/store.js?v=22"></script>
+  <script src="js/audio.js?v=22"></script>
+  <script src="js/qr.js?v=22"></script>
+  <script src="js/sprite.js?v=22"></script>
+  <script src="js/ui.js?v=22"></script>
+  <script src="js/rules.js?v=22"></script>
+  <script src="js/scan.js?v=22"></script>
+  <script src="js/game.js?v=22"></script>
+  <script src="js/ai.js?v=22"></script>
+  <script src="js/settings.js?v=22"></script>
+  <script src="js/app.js?v=22"></script>
+<script>
+  if ('serviceWorker' in navigator) navigator.serviceWorker.register('sw.js').catch(() => {});
+</script>
 </body>
 </html>

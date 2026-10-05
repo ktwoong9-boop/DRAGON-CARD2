@@ -30,8 +30,29 @@
     });
   }
 
+  /** 태블릿용: 화면을 누를 때마다 전체화면이 아니면 다시 전체화면 (브라우저는 터치 직후에만 허용) */
+  function keepFullscreen() {
+    const el = document.documentElement;
+    const request = el.requestFullscreen || el.webkitRequestFullscreen;
+    if (!request) return;
+    const installed = () => matchMedia('(display-mode: fullscreen), (display-mode: standalone)').matches;
+    document.addEventListener('click', () => {
+      if (document.fullscreenElement || document.webkitFullscreenElement || installed()) return;
+      try {
+        const p = request.call(el, { navigationUI: 'hide' });
+        if (p && p.then) {
+          p.then(() => screen.orientation && screen.orientation.lock && screen.orientation.lock('landscape').catch(() => {}))
+            .catch(() => {});
+        }
+      } catch (e) {
+        /* 전체화면 미지원 */
+      }
+    }, true);
+  }
+
   async function boot() {
     UI.fitStage();
+    if (window.DCB_BUILD && window.DCB_BUILD.playOnly) keepFullscreen();
     Scan.bind();
     Game.init({ onExit: goMenu });
     Settings.init({ onExit: goMenu });
