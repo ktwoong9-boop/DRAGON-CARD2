@@ -14,6 +14,8 @@ const Game = (() => {
   const GRADE_SCALE = { 초급: 0.92, 중급: 1, 고급: 1.08, 레어: 1.16, '레전더스 레어': 1.24 };
   const SIDE_NAME = { p1: '1P', p2: '2P' };
   const LIMIT_LABEL = { '레전더스 레어': '레전더스' };
+  const GALLERY_ICON =
+    '<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2.5" fill="none" stroke="currentColor" stroke-width="2.2"/><circle cx="9" cy="10" r="1.8" fill="currentColor"/><path d="M5 17l4.5-4.5 3 3 2.5-2.5L19 17z" fill="currentColor"/></svg>';
 
   let S = null;
   let hooks = {};
@@ -374,7 +376,8 @@ const Game = (() => {
         <canvas></canvas>
       </div>
       <div class="unit-bar"><i></i><b></b></div>
-      <div class="unit-buffs"></div>`;
+      <div class="unit-buffs"></div>
+      ${u.gallery ? `<div class="unit-gallery" title="갤러리에서 불러온 카드">${GALLERY_ICON}</div>` : ''}`;
     const box = unitBox(u);
     const canvas = $('canvas', el);
     canvas.width = Math.round(box.size * 1.5);
@@ -529,7 +532,7 @@ const Game = (() => {
       .join('');
     $(`#g-info-${u.side}`).innerHTML = `
       <p class="info-name">${UI.esc(u.name)}</p>
-      <p class="info-grade">${UI.esc(u.grade)}</p>
+      <p class="info-grade">${UI.esc(u.grade)}${u.gallery ? ` <span class="info-gallery">${GALLERY_ICON} 갤러리</span>` : ''}</p>
       <div class="info-stats">
         <div><span>체력</span><b>${u.hp}/${u.maxHp}</b></div>
         ${row('atk', '공격')}${row('def', '방어')}${row('move', '이동')}
@@ -1084,16 +1087,16 @@ const Game = (() => {
     refresh();
     const card = await Scan.open({ type: 'dragon', title: `${SIDE_NAME[side]} 드래곤 소환`, validate: (c) => dragonBlocker(side, c) });
     if (!card) return;
-    setMode('summon', { pending: { side, card } });
+    setMode('summon', { pending: { side, card, gallery: Scan.lastSource() === 'gallery' } });
     refresh();
   }
 
   async function placeSummon(col, row) {
-    const { side, card } = S.pending;
-    return summon(side, card, col, row);
+    const { side, card, gallery } = S.pending;
+    return summon(side, card, col, row, gallery);
   }
 
-  async function summon(side, card, col, row) {
+  async function summon(side, card, col, row, gallery = false) {
     const st = S;
     const p = S.players[side];
     S.busy = true;
@@ -1106,6 +1109,7 @@ const Game = (() => {
     await playReveal(card);
     if (gone(st)) return;
     const u = Rules.makeUnit(S.uidSeq++, side, card, col, row);
+    if (gallery) u.gallery = true;
     S.units.push(u);
     const v = ensureView(u);
     v.el.classList.add('summoning');

@@ -6,7 +6,7 @@
   <meta name="mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <title>드래곤 카드 배틀 시즌2</title>
-  <link rel="stylesheet" href="css/style.css?v=22" />
+  <link rel="stylesheet" href="css/style.css?v=23" />
   <link rel="icon" href="assets/icons/icon-192.png" />
   <script src="js/vendor/jsQR.min.js"></script>
   <script src="js/vendor/qrcode.min.js"></script>
@@ -102,6 +102,8 @@
               <div id="scan-result" class="scan-result">카드의 QR코드를 비추세요</div>
               <input id="scan-search" type="text" placeholder="이름 검색 (비밀번호)" autocomplete="off" />
               <ul id="scan-list" class="scan-list"></ul>
+              <button id="scan-gallery" type="button" class="ghost-btn scan-gallery">갤러리에서 카드 불러오기</button>
+              <input id="scan-file" type="file" accept="image/*" class="hidden" />
               <div class="row">
                 <button id="scan-ok" type="button" class="gold-btn" disabled>확인</button>
                 <button id="scan-cancel" type="button" class="ghost-btn">취소</button>
@@ -157,21 +159,21 @@
     <div id="toast" class="toast hidden"></div>
   </div>
 
-  <script src="js/build-config.js?v=22"></script>
-  <script src="js/content-data.js?v=22"></script>
-  <script src="js/db.js?v=22"></script>
-  <script src="js/zip.js?v=22"></script>
-  <script src="js/store.js?v=22"></script>
-  <script src="js/audio.js?v=22"></script>
-  <script src="js/qr.js?v=22"></script>
-  <script src="js/sprite.js?v=22"></script>
-  <script src="js/ui.js?v=22"></script>
-  <script src="js/rules.js?v=22"></script>
-  <script src="js/scan.js?v=22"></script>
-  <script src="js/game.js?v=22"></script>
-  <script src="js/ai.js?v=22"></script>
-  <script src="js/settings.js?v=22"></script>
-  <script src="js/app.js?v=22"></script>
+  <script src="js/build-config.js?v=23"></script>
+  <script src="js/content-data.js?v=23"></script>
+  <script src="js/db.js?v=23"></script>
+  <script src="js/zip.js?v=23"></script>
+  <script src="js/store.js?v=23"></script>
+  <script src="js/audio.js?v=23"></script>
+  <script src="js/qr.js?v=23"></script>
+  <script src="js/sprite.js?v=23"></script>
+  <script src="js/ui.js?v=23"></script>
+  <script src="js/rules.js?v=23"></script>
+  <script src="js/scan.js?v=23"></script>
+  <script src="js/game.js?v=23"></script>
+  <script src="js/ai.js?v=23"></script>
+  <script src="js/settings.js?v=23"></script>
+  <script src="js/app.js?v=23"></script>
 <script>
   if ('serviceWorker' in navigator) navigator.serviceWorker.register('sw.js').catch(() => {});
 </script>

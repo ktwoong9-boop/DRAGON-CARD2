@@ -325,6 +325,24 @@ button { font-family: inherit; cursor: pointer; }
 }
 .unit-buffs { position: absolute; left: 50%; bottom: -24%; transform: translateX(-50%); display: flex; gap: 3px; white-space: nowrap; }
 .unit-buffs span { font-size: 11px; font-weight: 900; background: rgba(0,0,0,0.7); border-radius: 6px; padding: 1px 5px; }
+.unit-gallery {
+  position: absolute;
+  left: calc(26% - 25px);
+  bottom: calc(-9% - 6px);
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: rgba(0,0,0,0.75);
+  border: 1px solid #ffe39a;
+  color: #ffe39a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+.unit-gallery svg { width: 13px; height: 13px; }
+.info-gallery { display: inline-flex; align-items: center; gap: 3px; margin-left: 4px; padding: 0 6px; border-radius: 8px; font-size: 11px; color: #ffe39a; background: rgba(0,0,0,0.45); border: 1px solid rgba(255,227,154,0.6); vertical-align: middle; }
+.info-gallery svg { width: 12px; height: 12px; }
 .unit.dying { animation: dying 0.75s forwards; }
 @keyframes dying { to { opacity: 0; transform: translateY(20px) scale(0.85); filter: brightness(3); } }
 .unit.summoning { animation: summoning 0.65s ease-out; }
@@ -503,6 +521,8 @@ button { font-family: inherit; cursor: pointer; }
 .scan-list { list-style: none; max-height: 130px; overflow-y: auto; }
 .scan-list li { padding: 8px 10px; border-bottom: 1px solid rgba(255,255,255,0.08); cursor: pointer; }
 .scan-list li:active { background: rgba(255, 227, 154, 0.15); }
+.scan-gallery { width: 100%; }
+.scan-result .scan-from-gallery { font-size: 12px; font-weight: 700; color: #ffe39a; }
 
 .result { background: #000; }
 .result img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; animation: pop 0.5s; }

@@ -9,6 +9,8 @@ const Scan = (() => {
   let resolver = null;
   let opts = null;
   let picked = null;
+  let pickedSource = 'camera';
+  let lastSource = null;
   let searchUnlocked = false;
   let camSession = 0;
 
@@ -77,19 +79,26 @@ const Scan = (() => {
     if (!resolver) return stopCamera();
     const res = CardQR.scanVideo($('#scan-video'), $('#scan-canvas'));
     if (!res) return;
-    if (!res.hit) {
+    handleHit(res.hit, 'camera');
+  }
+
+  function handleHit(hit, source) {
+    const loud = source !== 'camera';
+    if (!hit) {
+      if (loud) AudioKit.sfx('error');
       showResult(null, '등록되지 않은 QR코드입니다.');
       return;
     }
-    if (res.hit.type !== opts.type) {
+    if (hit.type !== opts.type) {
+      if (loud) AudioKit.sfx('error');
       showResult(null, opts.type === 'magic' ? '마법 카드가 아닙니다.' : '드래곤 카드가 아닙니다.');
       return;
     }
-    if (picked && picked.id === res.hit.card.id) return;
-    choose(res.hit.card);
+    if (source === 'camera' && picked && picked.id === hit.card.id) return;
+    choose(hit.card, source);
   }
 
-  async function choose(card) {
+  async function choose(card, source = 'camera') {
     const err = opts.validate ? opts.validate(card) : null;
     if (err) {
       AudioKit.sfx('error');
@@ -100,11 +109,44 @@ const Scan = (() => {
     }
     AudioKit.sfx('ui');
     picked = card;
-    showResult(card, null);
+    pickedSource = source;
+    showResult(card, null, source === 'gallery');
     $('#scan-ok').disabled = false;
   }
 
-  async function showResult(card, error) {
+  async function onGalleryFile() {
+    const input = $('#scan-file');
+    const file = input.files && input.files[0];
+    input.value = '';
+    const scan = resolver;
+    if (!file || !scan) return;
+    $('#scan-result').innerHTML = '<p class="small">사진에서 QR 코드를 찾는 중…</p>';
+    const url = URL.createObjectURL(file);
+    let raw = null;
+    try {
+      raw = await CardQR.decodeImage(url, { thorough: true });
+    } catch (e) {
+      console.warn(e);
+    } finally {
+      URL.revokeObjectURL(url);
+    }
+    if (resolver !== scan) return;
+    resumeCamera();
+    if (!raw) {
+      AudioKit.sfx('error');
+      showResult(null, '사진에서 QR 코드를 찾지 못했습니다. QR 코드가 잘 보이는 사진을 고르세요.');
+      return;
+    }
+    handleHit(Store.parseQR(raw), 'gallery');
+  }
+
+  /** 갤러리를 다녀오는 동안 안드로이드가 카메라를 끊었으면 다시 켬 */
+  function resumeCamera() {
+    if (!resolver || !stream) return;
+    if (stream.getTracks().some((t) => t.readyState === 'ended')) startCamera();
+  }
+
+  async function showResult(card, error, fromGallery = false) {
     const box = $('#scan-result');
     if (!card) {
       box.innerHTML = `<p class="err">${UI.esc(error)}</p>`;
@@ -121,6 +163,7 @@ const Scan = (() => {
       <p class="name">${UI.esc(card.name)} <span class="grade">${UI.esc(card.grade)}</span></p>
       <p class="small">마나 ${cost}</p>
       ${stats}
+      ${fromGallery ? '<p class="scan-from-gallery">갤러리에서 불러온 카드</p>' : ''}
       ${error ? `<p class="err">${UI.esc(error)}</p>` : ''}`;
   }
 
@@ -140,7 +183,7 @@ const Scan = (() => {
     Store.search($('#scan-search').value, opts.type).forEach((c) => {
       const li = document.createElement('li');
       li.textContent = `${c.name} (${c.grade})`;
-      li.onclick = () => choose(c);
+      li.onclick = () => choose(c, 'search');
       list.appendChild(li);
     });
   }
@@ -150,6 +193,7 @@ const Scan = (() => {
     $('#scan').classList.add('hidden');
     const r = resolver;
     resolver = null;
+    lastSource = result ? pickedSource : null;
     if (r) r(result);
   }
 
@@ -157,8 +201,10 @@ const Scan = (() => {
     if (resolver) close(null);
     opts = options;
     picked = null;
+    pickedSource = 'camera';
     $('#scan-title').textContent = options.title || '카드 스캔';
-    $('#scan-result').textContent = options.type === 'magic' ? '마법 카드의 QR코드를 비추세요' : '드래곤 카드의 QR코드를 비추세요';
+    const kind = options.type === 'magic' ? '마법 카드' : '드래곤 카드';
+    $('#scan-result').textContent = PLAY_ONLY ? `${kind}의 QR코드를 비추거나 갤러리에서 불러오세요` : `${kind}의 QR코드를 비추세요`;
     if ($('#scan-search')) $('#scan-search').value = '';
     if ($('#scan-list')) $('#scan-list').innerHTML = '';
     $('#scan-ok').disabled = true;
@@ -175,11 +221,17 @@ const Scan = (() => {
     if (PLAY_ONLY) {
       $('#scan-search').remove();
       $('#scan-list').remove();
+      $('#scan-gallery').onclick = () => resolver && $('#scan-file').click();
+      $('#scan-file').addEventListener('change', onGalleryFile);
+      window.addEventListener('focus', resumeCamera);
+      document.addEventListener('visibilitychange', () => document.visibilityState === 'visible' && resumeCamera());
       return;
     }
+    $('#scan-gallery').remove();
+    $('#scan-file').remove();
     $('#scan-search').addEventListener('focus', onSearchFocus);
     $('#scan-search').addEventListener('input', onSearchInput);
   }
 
-  return { open, bind };
+  return { open, bind, lastSource: () => lastSource };
 })();
